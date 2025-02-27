@@ -22,7 +22,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   icons: {
-    icon: "/icon.png",
+    icon: "/icon.ico",
   },
   title: "Song & Stark coopeartion Rwanda",
   description: "Song & Stark coopeartion Rwanda",

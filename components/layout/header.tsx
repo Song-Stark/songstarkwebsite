@@ -26,7 +26,7 @@ export default function Header(): React.ReactElement {
       key={label}
       href={href}
       className={`hover:opacity-80 ${
-        isButton ? "bg-[#00B6E4] px-4 py-2 rounded-3xl hover:opacity-90" : ""
+        isButton ? "bg-secondary px-4 py-2 rounded-3xl hover:opacity-90" : ""
       }`}
     >
       {label}
@@ -34,7 +34,7 @@ export default function Header(): React.ReactElement {
   );
 
   return (
-    <header className="bg-[#1D2088] text-white relative">
+    <header className="bg-primary text-white relative">
       <div className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -99,7 +99,7 @@ export default function Header(): React.ReactElement {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden absolute left-0 right-0 bg-[#1D2088] transition-all duration-300 ease-in-out z-50 ${
+          className={`md:hidden absolute left-0 right-0 bg-primary transition-all duration-300 ease-in-out z-50 ${
             isOpen ? 'opacity-100 visible top-full' : 'opacity-0 invisible -translate-y-4'
           }`}
         >

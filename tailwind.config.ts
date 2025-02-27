@@ -9,8 +9,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#1D2088",
+        secondary: "#1EB9EE",
+        tertiary: "#E8EFF7",
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
