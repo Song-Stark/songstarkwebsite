@@ -55,7 +55,7 @@ const Footer: FC = () => {
     ({ icon, href, ariaLabel }) => (
     <Link 
       href={href} 
-      className="text-primary hover:text-secondary  transition-colors" 
+      className="text-primary hover:text-secondary transition-colors duration-300" 
       aria-label={ariaLabel}
       target="_blank"
       rel="noopener noreferrer"
@@ -66,36 +66,45 @@ const Footer: FC = () => {
 
   return (
     <footer className="bg-tertiary text-primary mt-auto">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="col-span-1">
             <Image
               src="/images/logodark.png"
               alt="Song&Stark"
-              width={180}
-              height={60}
-              className="mb-4"
+              width={150}
+              height={50}
+              className="mb-6"
             />
-            <div className="space-y-2 text-sm text-gray-600">
-              <p><strong className="text-primary">CEO:</strong> Wan Song</p>
-              <p><strong className="text-primary">Phone:</strong> 0782-892-433</p>
-              <p><strong className="text-primary">E-mail:</strong> eric@songstark.com</p>
+            <div className="space-y-3">
+              <p className="flex items-center">
+                <strong className="text-primary min-w-[60px] text-base">CEO:</strong>
+                <span className="text-gray-600 text-base">Wan Song</span>
+              </p>
+              <p className="flex items-center">
+                <strong className="text-primary min-w-[60px] text-base">Phone:</strong>
+                <span className="text-gray-600 text-base">0782-892-433</span>
+              </p>
+              <p className="flex items-center">
+                <strong className="text-primary min-w-[60px] text-base">E-mail:</strong>
+                <span className="text-gray-600 text-base">eric@songstark.com</span>
+              </p>
             </div>
           </div>
 
           {/* Navigation Sections */}
           {Object.values(footerLinks).map((section: FooterSection) => (
             <div key={section.title} className="col-span-1">
-              <h3 className="text-lg font-semibold mb-4 text-primary">
+              <h3 className="text-xl font-semibold mb-6 capitalize">
                 {section.title}
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {section.links.map((link: FooterLink) => (
                   <li key={link.label}>
                     <Link 
                       href={link.href}
-                    className="text-gray-600 hover:text-secondary transition-colors"
+                      className="text-gray-600 hover:text-secondary transition-colors duration-300 text-base"
                     >
                       {link.label}
                     </Link>
@@ -106,33 +115,36 @@ const Footer: FC = () => {
           ))}
         </div>
 
+        {/* Border line */}
+        <div className="border-t border-[#d2dbe2] my-12"></div>
+
         {/* Bottom Bar */}
-        <div className="border-t border-[#d2dbe2] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-600">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-base text-gray-600 text-center md:text-left">
             © Copyright {currentYear} Song & Stark Cooperation Rwanda Ltd. All rights reserved.
           </p>
           
           {/* Social Links */}
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex items-center space-x-8">
             <SocialIcon 
               href="https://facebook.com"
               ariaLabel="Visit our Facebook page"
-              icon={<FaFacebook size={20} />}
+              icon={<FaFacebook size={24} />}
             />
             <SocialIcon 
               href="https://twitter.com"
               ariaLabel="Visit our Twitter page"
-              icon={<FaTwitter size={20} />}
+              icon={<FaTwitter size={24} />}
             />
             <SocialIcon 
               href="https://youtube.com"
               ariaLabel="Visit our YouTube channel"
-              icon={<FaYoutube size={20} />}
+              icon={<FaYoutube size={24} />}
             />
             <SocialIcon 
               href="https://instagram.com"
               ariaLabel="Visit our Instagram page"
-              icon={<FaInstagram size={20} />}
+              icon={<FaInstagram size={24} />}
             />
           </div>
         </div>

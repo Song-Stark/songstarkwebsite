@@ -1,100 +1,145 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 interface NavItem {
   label: string;
   href: string;
   isButton?: boolean;
+  hasDropdown?: boolean;
+  dropdownItems?: { name: string; href: string }[];
 }
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
+  { 
+    label: "Services", 
+    href: "/services",
+    hasDropdown: true,
+    dropdownItems: [
+      { name: "IT Solutions", href: "/services/it-solutions" },
+      { name: "Tours and Travel", href: "/services/tours-and-travel" },
+      { name: "Real Estate", href: "/services/real-estate" },
+      { name: "Korean Cosmetics online shopping", href: "/services/korean-cosmetics" },
+      { name: "Art Gallery", href: "/services/art-gallery" }
+    ]
+  },
   { label: "Career", href: "/career" },
   { label: "Contact", href: "/contact" },
-  { label: "S&S Korea", href: "/korea", isButton: true },
+  { label: "S&S Korea", href: "https://www.songstark.com/", isButton: true },
 ];
 
 export default function Header(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [hasScrolled, setHasScrolled] = useState<boolean>(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
-  const renderNavItem = ({ label, href, isButton }: NavItem): React.ReactElement => (
-    <Link
-      key={label}
-      href={href}
-      className={`hover:opacity-80 ${
-        isButton ? "bg-secondary px-4 py-2 rounded-3xl hover:opacity-90" : ""
-      }`}
-    >
-      {label}
-    </Link>
-  );
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleMouseEnter = (label: string) => {
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveDropdown(null);
+  };
+
+  const renderNavItem = ({ label, href, isButton, hasDropdown, dropdownItems }: NavItem): React.ReactElement => {
+    const isActive = pathname === href;
+    
+    return (
+      <div
+        key={href}
+        className="relative"
+        onMouseEnter={() => hasDropdown && handleMouseEnter(label)}
+        onMouseLeave={handleMouseLeave}
+      >
+        <Link
+          href={href}
+          className={`relative ${
+            isButton 
+              ? "bg-secondary px-4 py-2 rounded-3xl hover:opacity-80" 
+              : `after:content-[''] after:absolute after:h-[3px] after:bg-white after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 
+                 ${isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`
+          }`}
+        >
+          {label}
+        </Link>
+        {hasDropdown && activeDropdown === label && (
+          <div className="absolute left-0 mt-1 w-72 bg-white rounded-lg shadow-lg py-2 text-gray-800 before:content-[''] before:absolute before:top-[-15px] before:left-0 before:right-0 before:h-[15px] before:transparent">
+            {dropdownItems?.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block px-4 py-3 relative group hover:bg-gray-50"
+              >
+                <span className="relative">
+                  {item.name}
+                  <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
-    <header className="bg-primary text-white relative">
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Image
-              src="/images/logo.png"
-              alt="Song&Stark"
-              width={180}
-              height={60}
-              priority
-            />
+    <>
+      <header className={`fixed w-full z-50 transition-all duration-300 ${
+        isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary'
+      } text-white`}>
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <Image
+                src="/images/logo.png"
+                alt="Song&Stark"
+                width={180}
+                height={60}
+                priority
+              />
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-10 items-center font-light">
+              {navItems.map((item) => (
+                <div key={item.href}>
+                  {renderNavItem(item)}
+                </div>
+              ))}
+            </nav>
+
+            {/* Mobile menu button */}
+            <button
+              type="button"
+              className="md:hidden p-2 text-white"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-label="Toggle navigation"
+            >
+              <FontAwesomeIcon 
+                icon={isOpen ? faXmark : faBars}
+                className="w-6 h-6"
+              />
+            </button>
           </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-10 items-center font-light">
-            {navItems.map(renderNavItem)}
-          </nav>
-
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className="md:hidden p-2 text-white"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-expanded={isOpen}
-            aria-label="Toggle navigation"
-          >
-            {isOpen ? (
-              // Close icon
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              // Hamburger icon
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -106,14 +151,15 @@ export default function Header(): React.ReactElement {
           <nav className="container mx-auto px-4 py-6">
             <div className="flex flex-col space-y-6">
               {navItems.map((item) => (
-                <div key={item.label} onClick={() => setIsOpen(false)}>
+                <div key={item.href} onClick={() => setIsOpen(false)}>
                   {renderNavItem(item)}
                 </div>
               ))}
             </div>
           </nav>
         </div>
-      </div>
-    </header>
+      </header>
+      {!isHomePage && <div className="h-24" />}
+    </>
   );
 }

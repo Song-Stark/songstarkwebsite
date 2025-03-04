@@ -13,30 +13,30 @@ const TeamOverview: React.FC = () => {
   const generalManager = {
     name: "Hinda Ruton",
     position: "Founder & CEO",
-    image: "/images/person.jpg",
+    image: "/images/team/ceo.jpeg",
     description: "With over 10 years of experience in international business development, Hinda leads our organization with a vision to bridge Korean and Rwandan markets. Her expertise in strategic planning and cross-cultural business practices has been instrumental in establishing Song & Stark as a trusted name in both countries."
   };
 
   const teamLeaders: TeamLeader[] = [
     {
-      name: "Sarah Uwase",
+      name: "Eric Muhire MUDASAYA",
       position: "General Manager",
-      image: "/images/person.jpg"
+      image: "/images/team/gm-person.jpeg"
     },  
     {
-      name: "Jean de Dieu Iradukunda",
+      name: "Leonard TUMUSHIME",
       position: "Team Lead - IT Solutions",
-      image: "/images/person.jpg"
+      image: "/images/team/it-person.jpeg"
     },
     {
-      name: "David Mutabazi",
-      position: "Team Lead - Tours & Travel",
-      image: "/images/person.jpg"
+      name: "Jessica MUKANSANGA",
+      position: "Team Lead - Tour Services",
+      image: "/images/team/tour-person.jpeg"
     },
     {
-      name: "Rukundo Prince",
+      name: "Caissy Christine NAKURE",
       position: "Marketing Manager",
-      image: "/images/person.jpg"
+      image: "/images/team/marketing-person.jpeg"
     },
   ];
 
@@ -84,7 +84,7 @@ const TeamOverview: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {teamLeaders.map((leader, index) => (
               <div key={index} className="group text-center">
-                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 shadow-sm">
+                <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 shadow-sm border-2 border-primary/20 hover:border-primary transition-colors duration-300">
                   <Image
                     src={leader.image}
                     alt={leader.name}
