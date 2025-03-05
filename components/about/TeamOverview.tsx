@@ -11,10 +11,10 @@ interface TeamLeader {
 
 const TeamOverview: React.FC = () => {
   const generalManager = {
-    name: "Hinda Ruton",
-    position: "Founder & CEO",
+    name: "Wan Song",
+    position: "Co-Founder & CEO",
     image: "/images/team/ceo.jpeg",
-    description: "With over 10 years of experience in international business development, Hinda leads our organization with a vision to bridge Korean and Rwandan markets. Her expertise in strategic planning and cross-cultural business practices has been instrumental in establishing Song & Stark as a trusted name in both countries."
+    description: "With over 10 years of experience in international business development, Wan leads our organization with a vision to bridge Korean and Rwandan markets. His expertise in strategic planning and cross-cultural business practices has been instrumental in establishing Song & Stark as a trusted name in both countries."
   };
 
   const teamLeaders: TeamLeader[] = [

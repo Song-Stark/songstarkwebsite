@@ -25,7 +25,7 @@ const Services: React.FC = () => {
       icon: FaPlane,
       title: "Tours & Travel",
       description: "Providing exceptional tours and travel services between Korea and Rwanda.",
-      visual: "/images/services/tour.jpg"
+      visual: "/images/services/ktour.jpg"
     },
     {
       icon: FaShoppingBag,
@@ -57,12 +57,12 @@ const Services: React.FC = () => {
         sizes="(max-width: 768px) 100vw, 50vw"
         priority={true}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/40 group-hover:bg-primary/40 transition-all duration-700" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/30 to-primary/20 group-hover:bg-primary/40 transition-all duration-700" />
     </div>
   );
 
   return (
-    <section className="py-10 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-primary mb-3">What We Offer</h2>
@@ -71,9 +71,9 @@ const Services: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-5">
+        <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/2">
-            <div className="space-y-3.5 h-[520px] flex flex-col justify-between py-1.5">
+            <div className="space-y-3.5 h-[600px] flex flex-col justify-between py-1.5">
               {services.map((service, index) => (
                 <div
                   key={index}
@@ -95,8 +95,8 @@ const Services: React.FC = () => {
                       {React.createElement(service.icon, { className: 'text-base transition-transform group-hover:scale-110' })}
                     </div>
                     <div className="ml-3">
-                      <h3 className="text-[15px] font-semibold mb-0.5">{service.title}</h3>
-                      <p className="text-[13px] text-gray-600 leading-relaxed line-clamp-2">{service.description}</p>
+                      <h3 className="text-lg font-semibold mb-0.5">{service.title}</h3>
+                      <p className="text-md text-gray-600 leading-relaxed line-clamp-2">{service.description}</p>
                     </div>
                   </div>
                 </div>
@@ -105,12 +105,10 @@ const Services: React.FC = () => {
           </div>
 
           <div className="lg:w-1/2">
-            <div className="h-[520px] relative overflow-hidden group rounded-lg shadow-md">
+            <div className="h-[600px] relative overflow-hidden group rounded-lg shadow-md ">
               <ServiceVisual service={services[activeService]} />
-              
               <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-bl-full z-10 backdrop-blur-sm" />
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-tr-full z-10 backdrop-blur-sm" />
-              
               <div className="relative z-10 p-6 h-full flex flex-col text-white transition-all duration-500 transform">
                 <div className="text-center mb-5 animate-fadeIn">
                   <div className="relative inline-block">
@@ -124,7 +122,7 @@ const Services: React.FC = () => {
                   <h3 className="text-lg font-bold mb-2 hover:text-secondary transition-colors duration-300">
                     {services[activeService].title}
                   </h3>
-                  <p className="text-gray-200 max-w-sm mx-auto leading-relaxed text-sm">
+                  <p className="text-gray-200 max-w-sm mx-auto leading-relaxed text-lg">
                     {services[activeService].description}
                   </p>
                 </div>

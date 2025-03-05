@@ -24,7 +24,7 @@ const OurMission: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-center text-3xl font-bold">
             <span className="text-primary">our culture</span>
             <span className="mx-2">and</span>
-            <span className="text-primary">company values</span>
+            <span className="text-primary">values</span>
           </div>
         </div>
 

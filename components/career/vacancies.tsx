@@ -9,15 +9,26 @@ interface VacancyProps {
   location: string;
   type: string;
   description: string;
+  deadline: {
+    from: string;
+    to: string;
+  };
 }
 
-const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, description }) => (
+const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, description, deadline }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     className="bg-white rounded-lg p-6 mb-4 border border-gray-200 hover:border-primary transition-colors"
   >
-    <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+    <div className="flex justify-between items-start mb-2">
+      <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+      <div className="text-sm text-gray-600">
+        <p className="font-medium text-secondary mb-1">Application Period</p>
+        <p className="text-right">{new Date(deadline.from).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} - </p>
+        <p className="text-right font-semibold">{new Date(deadline.to).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+      </div>
+    </div>
     <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-3">
       <div className="flex items-center">
         <FaMapMarkerAlt className="mr-2 text-secondary" />
@@ -41,14 +52,21 @@ const Vacancies: React.FC = () => {
       title: "Senior Software Engineer",
       location: "Remote",
       type: "Full-time",
-      description: "We're looking for an experienced software engineer to join our team..."
+      description: "We're looking for an experienced software engineer to join our team...",
+      deadline: {
+        from: "2024-03-01T00:00:00",
+        to: "2024-03-31T23:59:59"
+      }
     },
-    // Add more vacancies as needed
     {
       title: "Graphic Designer",
       location: "Remote",
       type: "Full-time",
-      description: "We're looking for an experienced graphic designer to join our team..."
+      description: "We're looking for an experienced graphic designer to join our team...",
+      deadline: {
+        from: "2024-03-01T00:00:00",
+        to: "2024-03-31T23:59:59"
+      }
     },
     
   ];

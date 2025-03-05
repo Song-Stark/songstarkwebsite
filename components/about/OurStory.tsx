@@ -1,21 +1,49 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faGlobe, faHome, faPaintBrush, faPlane, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { services } from '@/data/servicedetails';
+import Image from 'next/image';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const OurStory: React.FC = () => {
-  const [hoveredIdx, setHoveredIdx] = React.useState<number | null>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const services = [
-    { name: "IT Solutions", icon: faGlobe, description: "Providing exceptional IT solutions services between Korea and Rwanda." },
-    { name: "Tours services", icon: faPlane, description: "Providing exceptional tours and travel services between Korea and Rwanda." },
-    { name: "Real Estate", icon: faHome, description: "Providing exceptional real estate services between Korea and Rwanda." },
-    { name: "Korean Cosmetics", icon: faShoppingBag, description: "Providing exceptional Korean cosmetics online shopping services between Korea and Rwanda." },
-    { name: "Art Gallery", icon: faPaintBrush, description: "Providing exceptional art gallery services between Korea and Rwanda." }
-  ];
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const slideWidth = clientWidth;
+      const totalSlides = Math.ceil(scrollWidth / slideWidth);
+      const progress = scrollLeft / (scrollWidth - clientWidth);
+      const newActiveSlide = Math.min(
+        Math.floor((progress * (totalSlides - 1)) + 0.5),
+        totalSlides - 1
+      );
+      setActiveSlide(newActiveSlide);
+    }
+  };
+
+  const scrollToSlide = (index: number) => {
+    if (scrollRef.current) {
+      const itemWidth = scrollRef.current.offsetWidth;
+      scrollRef.current.scrollTo({
+        left: itemWidth * index,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+    if (scrollElement) {
+      scrollElement.addEventListener('scroll', handleScroll);
+      return () => scrollElement.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   return (
     <section className="py-16">
@@ -28,73 +56,91 @@ const OurStory: React.FC = () => {
           <div className="w-20 h-1 bg-primary mx-auto mt-4"></div>
         </div>
         <p className="text-lg text-gray-700 text-center mx-auto mb-10">
-        By building strong human and material exchange channels from Rwanda. We aim to contribute to the continued revitalization of solid mutual trust and broader and deeper economic exchanges.
+          By building strong human and material exchange channels from Rwanda. We aim to contribute to the continued revitalization of solid mutual trust and broader and deeper economic exchanges.
         </p>
-        <p className="text-lg text-black  font-semibold text-center mx-auto mb-10"> 
-          We provide a wide range of services that includes:
+        <p className="text-lg text-gray-700 text-center mx-auto mb-10 font-semibold">
+          We offer a wide range of services to help you achieve your goals, Such as:
         </p>
-        {/* Services Display */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-20">
-          {services.map((service, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group flex flex-col items-center relative pt-20"
-              onMouseEnter={() => setHoveredIdx(idx)}
-              onMouseLeave={() => setHoveredIdx(null)}
-            >
-              {/* Description Card  */}
-              <AnimatePresence>
-                {hoveredIdx === idx && (
+        <div className="relative mb-14">
+          <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {Object.values(services).map((service) => (
+              <div 
+                key={service.id}
+                className="flex-none w-full sm:w-1/2 lg:w-1/3 px-3 snap-center"
+              >
+                <div className="relative h-[400px] rounded-lg overflow-hidden group">
                   <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute -top-10 translate-x-1/2 w-64 z-10"
+                    className="h-full w-full"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                   >
-                    <div className="bg-white shadow-lg rounded-xl p-4 relative border border-secondary/10">
-                      <p className="text-sm text-gray-600 text-center leading-relaxed">
-                        {service.description}
-                      </p>
-                      {/* Arrow pointer */}
-                      <div 
-                        className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white transform rotate-45 border-r border-b border-secondary/10"
-                      />
+                    <Image
+                      src={service.visual}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      quality={90}
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                      <div className="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 className="text-2xl font-bold text-white mb-3">
+                          {service.title}
+                        </h3>
+                        <p className="text-white/90 text-sm mb-4 line-clamp-2">
+                          {service.description}
+                        </p>
+                        {service.website && (
+                          <Link 
+                            href={service.website}
+                            className="inline-flex items-center px-4 py-2 bg-white text-primary rounded-lg
+                              hover:bg-secondary transition-all duration-300 group text-sm"
+                          >
+                            Visit Website
+                            <FontAwesomeIcon 
+                              icon={faExternalLinkAlt}
+                              className="ml-2 w-3 h-3 group-hover:translate-x-1 transition-transform" 
+                            />
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Icon Circle with hover effect */}
-              <div 
-                className={`w-24 h-24 rounded-full flex items-center justify-center mb-5 transition-all duration-300
-                  ${hoveredIdx === idx ? 'bg-secondary' : 'bg-primary'}`}
-              >
-                <FontAwesomeIcon 
-                  icon={service.icon}
-                  className="w-10 h-10 text-white"
-                />
+                </div>
               </div>
+            ))}
+          </div>
 
-              {/* Service Name */}
-              <h3 className="text-lg font-semibold text-gray-800 text-center">
-                {service.name}
-              </h3>
-            </motion.div>
-          ))}
+          {/* Modern Slide Indicators */}
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {Object.values(services).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSlide(index)}
+                className={`h-1 transition-all duration-300 rounded-full
+                  ${activeSlide === index 
+                    ? 'w-8 bg-primary' 
+                    : 'w-4 bg-gray-300 hover:bg-primary/50'
+                  }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* CTA */}
+        {/* CTA Section */}
         <div className="text-center">
           <Link 
             href="/services" 
-            className="inline-flex items-center px-8 py-4 bg-primary text-white font-medium rounded-xl
-              hover:bg-secondary transition-all duration-300 group"
+            className="inline-flex items-center px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg
+              hover:bg-secondary hover:border-none hover:text-white transition-all duration-300 group"
           >
-            Explore Services
+            Explore All Services
             <FontAwesomeIcon 
               icon={faChevronRight}
               className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" 

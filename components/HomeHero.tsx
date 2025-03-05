@@ -38,7 +38,7 @@ const HomeHero: FC<HomeHeroProps> = ({
           <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
             <Link 
               href="/services" 
-              className="bg-[#1E3A8A] hover:bg-secondary text-white px-8 py-3 rounded-md transition-all duration-300 transform hover:scale-102 font-medium text-base"
+              className="bg-secondary hover:bg-secondary/80 text-white px-8 py-3 rounded-md transition-all duration-300 transform hover:scale-102 font-medium text-base"
             >
               Our Services
             </Link>

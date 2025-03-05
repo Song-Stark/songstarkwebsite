@@ -10,6 +10,7 @@ interface NavItem {
   label: string;
   href: string;
   isButton?: boolean;
+  target?: string;
   hasDropdown?: boolean;
   dropdownItems?: { name: string; href: string }[];
 }
@@ -31,7 +32,7 @@ const navItems: NavItem[] = [
   },
   { label: "Career", href: "/career" },
   { label: "Contact", href: "/contact" },
-  { label: "S&S Korea", href: "https://www.songstark.com/", isButton: true },
+  { label: "S&S Korea", href: "https://www.songstark.com/", target: "_blank", isButton: true },
 ];
 
 export default function Header(): React.ReactElement {
@@ -68,28 +69,38 @@ export default function Header(): React.ReactElement {
         onMouseEnter={() => hasDropdown && handleMouseEnter(label)}
         onMouseLeave={handleMouseLeave}
       >
-        <Link
-          href={href}
-          className={`relative ${
-            isButton 
-              ? "bg-secondary px-4 py-2 rounded-3xl hover:opacity-80" 
-              : `after:content-[''] after:absolute after:h-[3px] after:bg-white after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 
-                 ${isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'}`
-          }`}
-        >
-          {label}
-        </Link>
+        {isButton ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`relative bg-secondary px-4 py-2 rounded-3xl hover:opacity-80`}
+          >
+            {label}
+          </a>
+        ) : (
+          <Link
+            href={href}
+            className={`relative ${
+              `after:content-[''] after:absolute after:h-[2px] after:bg-white after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 
+               ${isActive ? 'after:w-[20px] ' : 'after:w-0 hover:after:w-[20px] '}` 
+            }`}
+          >
+            {label}
+          </Link>
+        )}
         {hasDropdown && activeDropdown === label && (
           <div className="absolute left-0 mt-1 w-72 bg-white rounded-lg shadow-lg py-2 text-gray-800 before:content-[''] before:absolute before:top-[-15px] before:left-0 before:right-0 before:h-[15px] before:transparent">
             {dropdownItems?.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-3 relative group hover:bg-gray-50"
+                className="block px-4 py-3 pb-4 relative hover:bg-gray-50"
               >
-                <span className="relative">
+                <span className={`relative after:content-[''] after:absolute after:h-[2px] after:bg-primary after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 ${
+                  pathname === item.href ? 'after:w-[20px]' : 'after:w-0 hover:after:w-[20px]'
+                }`}>
                   {item.name}
-                  <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </span>
               </Link>
             ))}

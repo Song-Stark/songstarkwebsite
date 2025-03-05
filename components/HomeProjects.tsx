@@ -31,7 +31,7 @@ const HomeProjects: React.FC = () => {
   ];
 
   return (
-    <section className="w-full -mt-16">
+    <section className="w-full mt-[-6rem] py-10">
       <div className="container mx-auto px-4">
         <div className="relative flex flex-col md:flex-row items-start justify-center gap-0 mb-20">
           {projects.map((project, index) => (
@@ -53,10 +53,10 @@ const HomeProjects: React.FC = () => {
                   href={project.link}
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="block bg-white shadow-md overflow-hidden"
+                  className="block bg-white shadow-md overflow-hidden group relative"
                 >
                   <div className={`relative w-full
-                    ${index === 1 ? 'h-[500px]' : 'h-[400px]'}`}
+                    ${index === 1 ? 'h-[450px]' : 'h-[400px]'}`}
                   >
                     <Image
                       src={project.image}
@@ -67,16 +67,23 @@ const HomeProjects: React.FC = () => {
                         objectFit: 'cover',
                         objectPosition: 'center top'
                       }}
-                      className="hover:scale-[1.02] transition-transform duration-300"
+                      className="transition-all duration-300 group-hover:scale-110"
                     />
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <p className="text-xl font-semibold mb-2">Visit Website</p>
+                        <span className="text-sm bg-white/20 px-4 py-2 rounded-full">Click to Open ↗</span>
+                      </div>
+                    </div>
                   </div>
                 </Link>
 
                 <div className={`mt-6 text-center relative z-30 p-4
-                  ${index === 1 ? 'md:scale-100 md:mt-8' : ''}
+                  ${index === 1 ? 'md:scale-100 md:mt-4' : ''}
                 `}>
                   <h3 className={`font-bold mb-3 text-gray-900 text-center max-w-sm mx-auto
-                    ${index === 1 ? 'text-xl' : 'text-lg'}`}
+                    ${index === 1 ? 'text-lg' : 'text-lg'}`}
                   >
                     {project.title}
                   </h3>
