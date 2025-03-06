@@ -1,13 +1,17 @@
 import { Metadata } from "next";
+import SevicesListing from "@/components/services/SevicesListing";
+import Location from "@/components/Location";
 
 export const metadata: Metadata = {
   title: "Services - Song & Stark",
-  description: "Explore our art gallery services.",
+  description: "Explore our services at Song & Stark.",
 };
+
 export default function Services() {
     return (
         <main className="min-h-screen">
-            <h1>Services</h1>
+            <SevicesListing />
+            <Location />
         </main>
     )
 }

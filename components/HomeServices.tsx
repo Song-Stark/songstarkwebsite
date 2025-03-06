@@ -11,7 +11,7 @@ interface ServiceItem {
   visual: string;
 }
 
-const Services: React.FC = () => {
+const HomeServices: React.FC = () => {
   const [activeService, setActiveService] = useState(0);
 
   const services: ServiceItem[] = [
@@ -62,16 +62,18 @@ const Services: React.FC = () => {
   );
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-primary mb-3">What We Offer</h2>
+    <section className="w-full py-20">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            What We <span className="text-primary">Offer</span>
+          </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We provide comprehensive solutions to help businesses and individuals thrive in Rwanda and beyond
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2">
             <div className="space-y-3.5 h-[600px] flex flex-col justify-between py-1.5">
               {services.map((service, index) => (
@@ -163,4 +165,4 @@ const Services: React.FC = () => {
   );
 };
 
-export default Services; 
+export default HomeServices; 

@@ -1,7 +1,7 @@
 import HomeHero from "@/components/HomeHero";
 import HomeProjects from "@/components/HomeProjects";
 import Location from "@/components/Location";
-import Services from "@/components/Services";
+import HomeServices from "@/components/HomeServices";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <main>
         <HomeHero />
         <HomeProjects />
-        <Services />
+        <HomeServices />
         <Location />
       </main>
     </div>

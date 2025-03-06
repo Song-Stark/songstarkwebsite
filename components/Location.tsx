@@ -5,13 +5,9 @@ import { FaMapMarkerAlt, FaArrowRight, FaRegClock, FaEnvelope } from 'react-icon
 
 const Location: React.FC = () => {
   return (
-    <section className="py-12 relative overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/3 -skew-x-12 transform origin-top-right" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-secondary/3 -skew-x-12 transform origin-bottom-left" />
-      
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-stretch gap-8">
+    <section className="w-full bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 py-20">
+        <div className="flex flex-col lg:flex-row items-start gap-16">
           {/* Main content */}
           <div className="lg:w-7/12 relative z-10">
             <h2 className="text-2xl lg:text-4xl font-bold mb-8 leading-tight">
