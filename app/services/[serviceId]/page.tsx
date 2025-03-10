@@ -26,7 +26,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const validatedServiceId = await validateService(resolvedParams.serviceId);
   
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="container mx-auto py-10">Loading...</div>}>
       <ServiceClient serviceId={validatedServiceId} />
     </Suspense>
   );

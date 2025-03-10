@@ -21,7 +21,7 @@ const Location: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row items-start gap-3 mb-8">
               <a 
-                href="#contact-form"
+                href="/contact"
                 className="group flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-all duration-300 hover:gap-3 text-sm"
               >
                 <span className="font-medium">Get in Touch</span>

@@ -32,7 +32,7 @@ const HomeHero: FC<HomeHeroProps> = ({
           <h1 className="mb-6 sm:mb-8 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-normal font-semibold xl:text-5xl xl:leading-normal opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             {title}
           </h1>
-          <p className="text-base sm:text-lg leading-relaxed font-light xl:text-xl xl:leading-10 mb-8 sm:mb-10 opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+          <p className="text-md sm:text-base leading-relaxed font-light xl:text-lg xl:leading-10 mb-8 sm:mb-10 opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
             {description}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-0 animate-fade-in-up" style={{ animationDelay: '700ms' }}>

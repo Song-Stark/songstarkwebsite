@@ -35,7 +35,7 @@ const HomeProjects: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="relative flex flex-col md:flex-row items-start justify-center gap-0 mb-20">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
               className={`
                 w-full md:w-1/3 px-4 mb-8 md:mb-0 relative

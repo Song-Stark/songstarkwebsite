@@ -114,7 +114,7 @@ export default function Header(): React.ReactElement {
     <>
       <header className={`fixed w-full z-[1000] transition-all duration-500 ease-out ${
         isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary'
-      } text-white border-b border-black/5 py-3`}>
+      } text-white  py-3`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}

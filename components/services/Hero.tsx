@@ -55,7 +55,7 @@ export default function Hero({ title, description, visual, website }: HeroProps)
               href="/contact"
               className="inline-flex items-center px-6 py-3 border-2 border-gray-900 text-gray-900 rounded-xl hover:bg-gray-900 hover:text-white transition-all hover:translate-y-[-2px] hover:shadow-lg"
             >
-              Get Started
+              Contact Us
             </Link>
           </div>
         </motion.div>

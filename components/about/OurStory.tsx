@@ -64,9 +64,9 @@ const OurStory: React.FC = () => {
                 <p className="text-xs text-gray-500">Dedicated to fostering international relationships</p>
               </div>
               <div className="space-y-2">
-                <span className="text-primary text-2xl font-bold">50+</span>
+                <span className="text-primary text-2xl font-bold">10+</span>
                 <p className="text-sm text-gray-600">Successful Projects</p>
-                <p className="text-xs text-gray-500">Connecting businesses across continents</p>
+                <p className="text-xs text-gray-500">Connecting businness, individuals and organizations</p>
               </div>
             </div>
 

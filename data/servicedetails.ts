@@ -78,7 +78,7 @@ export interface ServiceDetails {
       ],
       portfolio: [
         {
-          title: "E-commerce Platform",
+          title: "Tour services website",
           year: 2023,
           description: "A full-featured online marketplace for local artisans",
           client: "ArtisanMarket Rwanda",
@@ -91,11 +91,44 @@ export interface ServiceDetails {
             "Order tracking",
             "Vendor dashboard"
           ],
-          image: "/images/services/cosmetics.jpg",
-          link: "https://www.k-martrwanda.com/"
+          image: "/images/portifloio/tour.png",
+          link: "https://songstarktours.com/"
         },
         {
-          title: "Healthcare Management System",
+          title: "Art gallery website",
+          year: 2023,
+          description: "A full-featured online marketplace for local artisans",
+          client: "ArtisanMarket Rwanda",
+          purpose: "Digitalize traditional craft sales and expand market reach",
+          beneficiaries: "Local artisans and craft enthusiasts",
+          functionality: [
+            "User authentication",
+            "Product management",
+            "Payment integration",
+            "Order tracking",
+            "Vendor dashboard"
+          ],
+          image: "/images/portifloio/art.png",
+          link: "https://art4africa.cafe24.com/"
+        },
+        {
+          title: "Real estate company website",
+          year: 2023,
+          description: "A full-featured online marketplace for local artisans",
+          client: "ArtisanMarket Rwanda",
+          purpose: "Digitalize traditional craft sales and expand market reach",
+          beneficiaries: "Local artisans and craft enthusiasts",
+          functionality: [
+            "User authentication",
+            "Product management",
+            "Payment integration",   
+          ],
+          image: "/images/portifloio/realty.png",
+          link: "https://k-realtyrwanda.com/"
+        },
+
+        {
+          title: "Korean cosmetics website",
           year: 2023,
           description: "Comprehensive hospital management solution",
           client: "Regional Medical Center",
@@ -108,11 +141,11 @@ export interface ServiceDetails {
             "Billing system",
             "Medical reports"
           ],
-          image: "/images/services/cosmetics.jpg",
-          link: "https://demo-healthcare.songstark.com"
+          image: "/images/portifloio/kmart.png",
+          link: "https://www.k-martrwanda.com/"
         },
         {
-          title: "Educational Platform",
+          title: "Construction company website",
           year: 2022,
           description: "Interactive learning management system",
           client: "National Education Board",
@@ -125,24 +158,10 @@ export interface ServiceDetails {
             "Progress tracking",
             "Resource library"
           ],
-          image: "/images/services/cosmetics.jpg",
-          link: "https://edu-platform.songstark.com"
+          image: "/images/portifloio/imce.png",
+          link: "https://imceltd.com/"
         },
-        {
-          title: "E-commerce Platform",
-          year: 2023,
-          description: "A full-featured online marketplace for local artisans",
-          client: "ArtisanMarket Rwanda",
-          purpose: "Digitalize traditional craft sales and expand market reach",
-          beneficiaries: "Local artisans and craft enthusiasts",
-          functionality: [
-            "User authentication",
-            "Product management",
-            "Payment integration",   
-          ],
-          image: "/images/services/cosmetics.jpg",
-          link: "https://artisan-market.rw"
-        }
+
       ]
     },
     "tours-and-travel": {

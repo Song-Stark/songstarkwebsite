@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FC } from 'react';
-import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaYoutube, FaInstagram, FaPaperPlane } from 'react-icons/fa';
 
 interface FooterLink {
   label: string;
@@ -24,11 +24,11 @@ const Footer: FC = () => {
     products: {
       title: 'services',
       links: [
-        { label: 'IT services', href: '/It-services' },
-        { label: 'Tours & Travel', href: '/Tours-Travel' },
-        { label: 'Korean Cosmetics shop', href: '/Korean-Cosmetics' },
-        { label: 'Real Estate Agency', href: '/Real-Estate' },
-        { label: 'Art Gallery', href: '/Art-Gallery' }
+        { label: 'IT services', href: '/services/it-solutions' },
+        { label: 'Tours & Travel', href: '/services/tours-and-travel' },
+        { label: 'Korean Cosmetics shop', href: '/services/korean-cosmetics' },
+        { label: 'Real Estate Agency', href: '/services/real-estate' },
+        { label: 'Art Gallery', href: '/services/art-gallery' }
       ]
     },
     resources: {
@@ -36,17 +36,8 @@ const Footer: FC = () => {
       links: [
         { label: 'About', href: '/about' },
         { label: 'Services', href: '/services' },
-        { label: 'Careers', href: '/careers' },
+        { label: "Career", href: "/career" },
         { label: 'Contact', href: '/contact' }
-      ]
-    },
-    support: {
-      title: 'Support',
-      links: [ 
-        { label: 'Documentation', href: '/docs' },
-        { label: 'Help Desk', href: '/help' },
-        { label: 'Security', href: '/security' },
-        { label: 'Terms of Service', href: '/terms' }
       ]
     }
   };
@@ -84,11 +75,11 @@ const Footer: FC = () => {
               </p>
               <p className="flex items-center">
                 <strong className="text-primary min-w-[60px] text-base">Phone:</strong>
-                <span className="text-gray-600 text-base">0782-892-433</span>
+                <span className="text-gray-600 text-base"> 0782-892-433</span>
               </p>
               <p className="flex items-center">
                 <strong className="text-primary min-w-[60px] text-base">E-mail:</strong>
-                <span className="text-gray-600 text-base">eric@songstark.com</span>
+                <span className="text-gray-600 text-base"> eric@songstark.com</span>
               </p>
             </div>
           </div>
@@ -113,11 +104,36 @@ const Footer: FC = () => {
               </ul>
             </div>
           ))}
-        </div>
 
+          {/* Newsletter Section */}
+          <div className="col-span-1">
+            <h3 className="text-xl font-semibold mb-6 capitalize">
+              Newsletter
+            </h3>
+            <div className="space-y-4">
+              <p className="text-gray-600">
+                Get latest news and promotions direct in your inbox!
+              </p>
+              <form className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="flex-1 rounded-md bg-white px-4 py-2 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary border border-gray-200"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-secondary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center"
+                  aria-label="Subscribe to newsletter"
+                >
+                  <FaPaperPlane className="h-4 w-4" />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
         {/* Border line */}
         <div className="border-t border-[#d2dbe2] my-8"></div>
-
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-base text-gray-600 text-center md:text-left">
