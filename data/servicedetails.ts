@@ -92,7 +92,7 @@ export interface ServiceDetails {
             "Vendor dashboard"
           ],
           image: "/images/services/cosmetics.jpg",
-          link: "https://artisan-market.rw"
+          link: "https://www.k-martrwanda.com/"
         },
         {
           title: "Healthcare Management System",
@@ -147,7 +147,7 @@ export interface ServiceDetails {
     },
     "tours-and-travel": {
       id: "tours-and-travel",
-      title: "Tours & Travel",
+      title: "Tour Services",
       description: "Providing exceptional tour services in Rwanda and Uganda for both locals and internationals.",
       longDescription: [
         "Experience the best of both worlds with our specialized tour services in Rwanda and Uganda.",
@@ -162,7 +162,7 @@ export interface ServiceDetails {
         "Transportation Services"
       ],
       visual: "/images/services/tour3.jpg",
-      website: "https://travel.songstark.com"
+      website: "https://songstarktours.com/"
     },
     "korean-cosmetics": {
       id: "korean-cosmetics",
@@ -181,7 +181,7 @@ export interface ServiceDetails {
         "Beauty Workshops"
       ],
       visual: "/images/services/cosmetics.jpg",
-      website: "https://beauty.songstark.com"
+      website: "https://www.k-martrwanda.com/"
     },
     "real-estate": {
       id: "real-estate",
@@ -200,7 +200,7 @@ export interface ServiceDetails {
         "Legal Support"
       ],
       visual: "/images/services/real-estate.jpg",
-      website: "https://realty.songstark.com"
+      website: "https://www.k-realtyrwanda.com/"
     },
     "art-gallery": {
       id: "art-gallery",
@@ -219,6 +219,6 @@ export interface ServiceDetails {
         "Worldwide Shipping"
       ],
       visual: "/images/services/art3.jpg",
-      website: "https://art.songstark.com"
+      website: "https://art4africa.cafe24.com/"
     }
   };

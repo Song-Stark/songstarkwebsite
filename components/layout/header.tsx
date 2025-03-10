@@ -119,14 +119,16 @@ export default function Header(): React.ReactElement {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center"> 
-              <Image
-                src="/images/logo.png"
-                alt="Song&Stark"
-                width={140}
-                height={46}
-                className="w-[140px] md:w-[180px]"
+              <Link href="/">
+                <Image
+                  src="/images/logo.png"
+                  alt="Song&Stark"
+                  width={140}
+                  height={46}
+                  className="w-[140px] md:w-[180px]"
                 priority
               />
+              </Link>
             </div>
 
             {/* Desktop Navigation */}

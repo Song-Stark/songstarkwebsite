@@ -23,7 +23,7 @@ const HomeServices: React.FC = () => {
     },
     {
       icon: FaPlane,
-      title: "Tours & Travel",
+      title: "Tour Services",
       description: "Providing exceptional tours and travel services between Korea and Rwanda.",
       visual: "/images/services/ktour.jpg"
     },
