@@ -112,10 +112,10 @@ export default function Header(): React.ReactElement {
 
   return (
     <>
-      <header className={`fixed w-full z-50 transition-all duration-300 ${
+      <header className={`fixed w-full z-[1000] transition-all duration-500 ease-out ${
         isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary'
-      } text-white`}>
-        <div className="container mx-auto px-4 py-3 md:py-6">
+      } text-white border-b border-black/5 py-3`}>
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center"> 
@@ -158,11 +158,11 @@ export default function Header(): React.ReactElement {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden absolute left-0 right-0 bg-primary transition-all duration-300 ease-in-out z-50 ${
+          className={`md:hidden absolute left-0 right-0 bg-primary transition-all duration-500 ease-out z-[1000] ${
             isOpen ? 'opacity-100 visible top-full' : 'opacity-0 invisible -translate-y-4'
           }`}
         >
-          <nav className="container mx-auto px-4 py-6">
+          <nav className="container mx-auto px-4 py-8">
             <div className="flex flex-col space-y-6">
               {navItems.map((item) => (
                 <div key={item.href} onClick={() => setIsOpen(false)}>
