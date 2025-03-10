@@ -116,7 +116,7 @@ const Footer: FC = () => {
         </div>
 
         {/* Border line */}
-        <div className="border-t border-[#d2dbe2] my-12"></div>
+        <div className="border-t border-[#d2dbe2] my-8"></div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">

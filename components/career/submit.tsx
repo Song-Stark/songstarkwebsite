@@ -22,6 +22,10 @@ const SubmitCV: React.FC = () => {
     coverLetter: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [fileName, setFileName] = useState('');
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -31,17 +35,55 @@ const SubmitCV: React.FC = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+      setFileName(selectedFile.name);
       setFormData({
         ...formData,
-        cvFile: e.target.files[0],
+        cvFile: selectedFile,
       });
+      setFileName(selectedFile.name);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {  
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+    setIsSubmitting(true);
+    const data = new FormData();
+    data.append('fullName', formData.fullName);
+    data.append('email', formData.email);
+    data.append('phone', formData.phone);
+    data.append('position', formData.position);
+    data.append('coverLetter', formData.coverLetter);
+    
+    if (formData.cvFile) {
+      data.append('resume', formData.cvFile);
+    }
+
+    try {
+      const response = await fetch('/api/carreers', {
+        method: 'POST',
+        body: data,
+      });
+      const result = await response.json();
+      if (response.ok) {
+        setSubmitMessage('Application submitted successfully');
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          position: '',
+          cvFile: null,
+          coverLetter: '',
+        });
+        setFileName('');
+      } else {
+        setSubmitMessage('Application submission failed');
+      }
+    } catch (error) {
+      setSubmitMessage('An error occurred while submitting the application');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -114,7 +156,7 @@ const SubmitCV: React.FC = () => {
                 <FaUpload className="mx-auto h-10 w-10 text-primary" />
                 <div className="mt-2">
                   <label className="cursor-pointer text-primary hover:text-primary/90">
-                    <span>Upload your CV</span>
+                    <span>{fileName || 'Upload your CV'}</span>
                     <input
                       type="file"
                       name="cvFile"
@@ -146,11 +188,15 @@ const SubmitCV: React.FC = () => {
             <button
               type="submit"
               className="w-32 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200"
+              disabled={isSubmitting}
             >
-              Submit
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
           </div>
         </form>
+      </div>
+      <div className="text-center text-sm text-gray-500">
+        <p className='mt-4'>{submitMessage}</p>
       </div>
     </div>
   );

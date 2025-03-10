@@ -22,7 +22,7 @@ export default function CTA({ serviceTitle }: CTAProps) {
             Ready to Transform Your Business?
           </h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Let's discuss how our {serviceTitle} can help you achieve your goals.
+            Let&apos;s discuss how our {serviceTitle} can help you achieve your goals.
           </p>
           <Link
             href="/contact"

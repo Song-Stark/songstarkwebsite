@@ -2,27 +2,51 @@
 
 import React, { useState } from 'react';
 import { FaClock, FaEnvelope, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaTwitter } from 'react-icons/fa';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+const formSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Invalid email address'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting }
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema)
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission 
-    console.log(formData);
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        alert("Email sent successfully!");
+        reset();
+      } else {
+        alert(`Failed to send email: ${result.message}`);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while sending the email.");
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
   return (
     <div className="container mx-auto py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -32,7 +56,7 @@ const ContactForm = () => {
             <span className="text-secondary"> HELLO!</span>
           </h2>
           <p className="text-gray-600 mb-8">
-          We'd love to hear from you!  Whether you want one of our services, it's a fresh project, an exciting idea, or a chance to collaborate, we're here and eager to be a part of your vision. Reach out anytime!
+            We&apos;d love to hear from you! Whether you want one of our services, it&apos;s a fresh project, an exciting idea, or a chance to collaborate, we&apos;re here and eager to be a part of your vision. Reach out anytime!
           </p>
 
           <div className="space-y-6">
@@ -71,15 +95,25 @@ const ContactForm = () => {
             </div>
 
             <div className="flex space-x-4 text-2xl">
-              <a href="#" className="text-primary hover:text-secondary">
-                <span className="sr-only">LinkedIn</span>
+              <a 
+                href="#" 
+                className="text-primary hover:text-secondary"
+                aria-label="Follow us on LinkedIn"
+              >
                 <FaLinkedin />
               </a>
-              <a href="#" className="text-primary hover:text-secondary">
-                <span className="sr-only">Twitter</span>
+              <a 
+                href="#" 
+                className="text-primary hover:text-secondary"
+                aria-label="Follow us on Twitter"
+              >
                 <FaTwitter />
               </a>
-              <a href="#" className="text-primary hover:text-secondary">    
+              <a 
+                href="#" 
+                className="text-primary hover:text-secondary"
+                aria-label="Follow us on Instagram"
+              >    
                 <FaInstagram />
               </a>
             </div>
@@ -87,46 +121,41 @@ const ContactForm = () => {
         </div>
 
         <div className="mt-10">
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             <div>
               <input
+                {...register('name')}
                 type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
                 placeholder="Name"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary "
-                required
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary"
               />
+              {errors.name && <p className="text-red-500 mt-1">{errors.name.message}</p>}
             </div>
             <div>
               <input
+                {...register('email')}
                 type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
                 placeholder="Email"
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary "
-                required
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary"
               />
+              {errors.email && <p className="text-red-500 mt-1">{errors.email.message}</p>}
             </div>
             <div>
               <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
+                {...register('message')}
                 placeholder="Message"
                 rows={6}
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary "
-                required
+                className="w-full px-4 py-3 rounded-lg bg-gray-100 border-transparent focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary"
               />
+              {errors.message && <p className="text-red-500 mt-1">{errors.message.message}</p>}
             </div>
             <div>
               <button
                 type="submit"
-                className="w-32 bg-secondary text-white px-6 py-3 rounded-lg hover:bg-secondary/90 transition-colors duration-200 shadow-lg"
+                disabled={isSubmitting}
+                className="w-32 bg-secondary text-white px-6 py-3 rounded-lg hover:bg-secondary/90 transition-colors duration-200 shadow-lg disabled:opacity-50"
               >
-                Send now
+                {isSubmitting ? "Sending..." : "Send now"}
               </button>
             </div>
           </form>

@@ -115,15 +115,16 @@ export default function Header(): React.ReactElement {
       <header className={`fixed w-full z-50 transition-all duration-300 ${
         isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary'
       } text-white`}>
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 py-3 md:py-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center"> 
               <Image
                 src="/images/logo.png"
                 alt="Song&Stark"
-                width={180}
-                height={60}
+                width={140}
+                height={46}
+                className="w-[140px] md:w-[180px]"
                 priority
               />
             </div>
@@ -140,14 +141,14 @@ export default function Header(): React.ReactElement {
             {/* Mobile menu button */}
             <button
               type="button"
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-1 text-white"
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}
               aria-label="Toggle navigation"
             >
               <FontAwesomeIcon 
                 icon={isOpen ? faXmark : faBars}
-                className="w-6 h-6"
+                className="w-5 h-5 md:w-6 md:h-6"
               />
             </button>
           </div>
@@ -170,7 +171,7 @@ export default function Header(): React.ReactElement {
           </nav>
         </div>
       </header>
-      {!isHomePage && <div className="h-24" />}
+      {!isHomePage && <div className="h-16 md:h-24" />}
     </>
   );
 }

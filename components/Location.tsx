@@ -11,12 +11,12 @@ const Location: React.FC = () => {
           {/* Main content */}
           <div className="lg:w-7/12 relative z-10">
             <h2 className="text-2xl lg:text-4xl font-bold mb-8 leading-tight">
-              Let's Create
+              Let&apos;s Create
               <span className="block text-primary">Something Exceptional</span>
             </h2>
 
             <p className="text-gray-600 text-base mb-6 max-w-lg">
-              Whether online or in person, we're ready to transform your ideas into reality. Visit us in the heart of Kigali.
+              Whether online or in person, we&apos;re ready to transform your ideas into reality. Visit us in the heart of Kigali.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-3 mb-8">
