@@ -114,7 +114,7 @@ const Footer: FC = () => {
               <p className="text-gray-600">
                 Get latest news and promotions direct in your inbox!
               </p>
-              <form className="flex gap-2">
+              <form className="flex gap-1">
                 <input
                   type="email"
                   placeholder="Email"
