@@ -22,7 +22,7 @@ export default function WhyChooseUs({ items }: WhyChooseUsProps) {
         className="bg-white rounded-2xl p-8 "
       >
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary mb-4">Why Choose Us</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">Why Choose Us</h2>
           <div className="w-20 h-1 bg-gray-900 rounded-full mx-auto"></div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

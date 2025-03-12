@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 interface Project {
   title: string;
@@ -33,12 +35,12 @@ const HomeProjects: React.FC = () => {
   return (
     <section className="w-full mt-[-6rem] py-10">
       <div className="container mx-auto px-4">
-        <div className="relative flex flex-col md:flex-row items-start justify-center gap-0 mb-20">
+        <div className="relative flex flex-col md:flex-row items-start justify-center gap-4 md:gap-0 mb-12">
           {projects.map((project, index) => (
             <div
               key={index}
               className={`
-                w-full md:w-1/3 px-4 mb-8 md:mb-0 relative
+                w-full md:w-1/3 mb-6 md:mb-0 relative
                 ${index === 1 ? 'md:z-20 md:w-2/5' : 'md:z-10'} 
                 ${index === 0 ? 'md:transform md:translate-x-16' : ''}
                 ${index === 2 ? 'md:transform md:-translate-x-16' : ''}
@@ -48,15 +50,13 @@ const HomeProjects: React.FC = () => {
               <div className={`
                 ${index === 1 ? 'md:scale-110' : ''}
                 transform transition-all duration-300 ease-in-out relative
+                w-full rounded-lg overflow-hidden
+                md:hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)]
+                md:group
               `}>
-                <Link 
-                  href={project.link}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block bg-white shadow-md overflow-hidden group relative"
-                >
-                  <div className={`relative w-full
-                    ${index === 1 ? 'h-[450px]' : 'h-[400px]'}`}
+                <div className="p-3">
+                  <div className={`relative w-full rounded-md overflow-hidden
+                    ${index === 1 ? 'h-[180px] md:h-[260px]' : 'h-[180px] md:h-[240px]'}`}
                   >
                     <Image
                       src={project.image}
@@ -67,37 +67,53 @@ const HomeProjects: React.FC = () => {
                         objectFit: 'cover',
                         objectPosition: 'center top'
                       }}
-                      className="transition-all duration-300 group-hover:scale-110"
+                      className="md:transition-transform md:duration-500 md:group-hover:scale-105"
                     />
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <p className="text-xl font-semibold mb-2">Visit Website</p>
-                        <span className="text-sm bg-white/20 px-4 py-2 rounded-full">Click to Open ↗</span>
-                      </div>
+                  </div>
+                  
+                  <div className="pt-3 pb-2 px-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-base font-semibold text-gray-800">
+                        {project.title}
+                      </h3>
+                      <Link 
+                        href={project.link}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full
+                          bg-primary/10 text-primary
+                          md:hover:bg-primary md:hover:text-white
+                          transition-colors duration-300"
+                      >
+                        <FontAwesomeIcon 
+                          icon={faArrowRight} 
+                          className="w-4 h-4"
+                        />
+                      </Link>
+                    </div>
+                    <p className="text-sm text-gray-500 mt-2 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="mt-3 flex items-center gap-2 text-xs">
+                      <span className="px-2 py-1 rounded-md bg-gray-50/50 text-gray-600">
+                        {index === 0 ? 'Real Estate' : index === 1 ? 'Tourism' : 'E-commerce'}
+                      </span>
                     </div>
                   </div>
-                </Link>
-
-                <div className={`mt-6 text-center relative z-30 p-4
-                  ${index === 1 ? 'md:scale-100 md:mt-4' : ''}
-                `}>
-                  <h3 className={`font-bold mb-3 text-gray-900 text-center max-w-sm mx-auto
-                    ${index === 1 ? 'text-lg' : 'text-lg'}`}
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm max-w-sm mx-12">
-                    {project.description}
-                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
         <div className="flex justify-center">
-          <Link href="/services" className="text-white hover:bg-secondary bg-primary px-6 py-3 rounded-md">
+          <Link 
+            href="/services" 
+            className="group flex items-center gap-2 px-6 py-3 bg-tertiary text-primary rounded-full hover:bg-primary/90  hover:text-white transition-all duration-300 hover:gap-3 text-sm">
             View All Projects
+            <FontAwesomeIcon 
+              icon={faChevronRight} 
+              className="w-4 h-4"
+            />
           </Link>
         </div>
       </div>

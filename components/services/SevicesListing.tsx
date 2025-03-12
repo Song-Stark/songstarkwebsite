@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { services } from '@/data/servicedetails';
@@ -36,6 +36,26 @@ const ServicesListing: React.FC = () => {
     }
   };
 
+  const scrollToNext = () => {
+    if (scrollRef.current) {
+      const itemWidth = scrollRef.current.offsetWidth;
+      scrollRef.current.scrollTo({
+        left: scrollRef.current.scrollLeft + itemWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollToPrevious = () => {
+    if (scrollRef.current) {
+      const itemWidth = scrollRef.current.offsetWidth;
+      scrollRef.current.scrollTo({
+        left: scrollRef.current.scrollLeft - itemWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     const scrollElement = scrollRef.current;
     if (scrollElement) {
@@ -58,6 +78,23 @@ const ServicesListing: React.FC = () => {
           Explore our comprehensive range of services designed to meet your needs and exceed your expectations.
         </p>
         <div className="relative mb-8 sm:mb-10 md:mb-14">
+          {/* Navigation Buttons */}
+          <button
+            onClick={scrollToPrevious}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/50 hover:bg-white p-2 rounded-[50%] shadow-md sm:hidden"
+            aria-label="Previous slide"
+          >
+            <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4 text-primary" />
+          </button>
+          
+          <button
+            onClick={scrollToNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/50 hover:bg-white p-2 rounded-[50%] shadow-md sm:hidden"
+            aria-label="Next slide"
+          >
+            <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4 text-primary" />
+          </button>
+
           <div 
             ref={scrollRef}
             className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
@@ -91,19 +128,17 @@ const ServicesListing: React.FC = () => {
                         <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2">
                           {service.description}
                         </p>
-                        {service.website && (
-                          <Link 
-                            href={service.website}
-                            className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-primary rounded-lg
-                              hover:bg-secondary transition-all duration-300 group text-xs sm:text-sm"
-                          >
-                            Learn More
-                            <FontAwesomeIcon 
-                              icon={faExternalLinkAlt}
-                              className="ml-2 w-2.5 sm:w-3 h-2.5 sm:h-3 group-hover:translate-x-1 transition-transform" 
-                            />
-                          </Link>
-                        )}
+                        <Link 
+                          href={`/services/${service.id}`}
+                          className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-primary rounded-lg
+                          hover:bg-secondary transition-all duration-300 group text-xs sm:text-sm"
+                        >
+                          Learn More
+                          <FontAwesomeIcon 
+                            icon={faExternalLinkAlt}
+                            className="ml-2 w-2.5 sm:w-3 h-2.5 sm:h-3 group-hover:translate-x-1 transition-transform" 
+                          />
+                        </Link>
                       </div>
                     </div>
                   </motion.div>

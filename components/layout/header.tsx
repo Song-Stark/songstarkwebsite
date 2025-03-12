@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 interface NavItem {
   label: string;
@@ -39,8 +39,10 @@ export default function Header(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [hasScrolled, setHasScrolled] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,6 +53,16 @@ export default function Header(): React.ReactElement {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleMouseEnter = (label: string) => {
     setActiveDropdown(label);
   };
@@ -59,33 +71,99 @@ export default function Header(): React.ReactElement {
     setActiveDropdown(null);
   };
 
+  const toggleDropdown = (label: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setOpenDropdowns(prev => 
+      prev.includes(label) 
+        ? prev.filter(item => item !== label)
+        : [...prev, label]
+    );
+  };
+
   const renderNavItem = ({ label, href, isButton, hasDropdown, dropdownItems }: NavItem): React.ReactElement => {
     const isActive = pathname === href;
+    const isDropdownOpen = openDropdowns.includes(label);
      
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      return (
-        <div className="w-full">
-          {isButton ? (
+    if (isMobile) {
+      // Button items (like S&S Korea)
+      if (isButton) {
+        return (
+          <div className="w-full">
             <a
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-secondary px-4 py-2 rounded-3xl hover:opacity-80 block w-full"
+              className="inline-block bg-secondary px-4 py-2 rounded-3xl hover:opacity-80"
+              onClick={() => setIsOpen(false)}
             >
               {label}
             </a>
-          ) : (
-            <Link
-              href={href}
-              className={`relative block w-full ${
-                `after:content-[''] after:absolute after:h-[2px] after:bg-white after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 
-                 ${isActive ? 'after:w-[20px]' : 'after:w-0 hover:after:w-[20px]'}`
-              }`}
+          </div>
+        );
+      }
+
+      // Services item with dropdown
+      if (label === "Services") {
+        return (
+          <div className="w-full">
+            <div 
+              className="flex items-center justify-between w-full cursor-pointer"
+              onClick={() => window.location.href = href}
             >
-              {label}
-            </Link>
-          )}
-        </div>
+              <span className={`relative ${
+                isActive ? 'after:w-[20px]' : 'after:w-0'
+              } after:content-[''] after:absolute after:h-[2px] after:bg-white after:left-0 after:bottom-[-4px]`}>
+                {label}
+              </span>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleDropdown("Services", e);
+                }}
+                className="p-2"
+              >
+                <FontAwesomeIcon 
+                  icon={faChevronDown}
+                  className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+            </div>
+            {isDropdownOpen && (
+              <div className="pl-4 space-y-3 mt-2">
+                {dropdownItems?.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block text-sm"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span className={`relative ${
+                      pathname === item.href ? 'after:w-[20px]' : 'after:w-0'
+                    } after:content-[''] after:absolute after:h-[2px] after:bg-white after:left-0 after:bottom-[-4px]`}>
+                      {item.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      }
+
+      // Regular navigation items
+      return (
+        <Link
+          href={href}
+          className="block w-full"
+          onClick={() => setIsOpen(false)}
+        >
+          <span className={`relative ${
+            isActive ? 'after:w-[20px]' : 'after:w-0'
+          } after:content-[''] after:absolute after:h-[2px] after:bg-white after:left-0 after:bottom-[-4px]`}>
+            {label}
+          </span>
+        </Link>
       );
     }
     return (
@@ -191,7 +269,7 @@ export default function Header(): React.ReactElement {
           <nav className="container mx-auto px-4 py-8">
             <div className="flex flex-col space-y-6">
               {navItems.map((item) => (
-                <div key={item.href} onClick={() => setIsOpen(false)}>
+                <div key={item.href}>
                   {renderNavItem(item)}
                 </div>
               ))}

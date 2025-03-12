@@ -33,41 +33,16 @@ export default function Portfolio({ items }: PortfolioProps) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
+          <span className="text-primary text-xs sm:text-sm font-semibold tracking-wider uppercase mb-4 block">
             Portfolio Showcase
           </span>
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Some of Our Work
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
         <div className="relative">
-          <div className="absolute -left-12 -right-12 top-1/2 -translate-y-1/2 flex items-center justify-between z-10 pointer-events-none">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setActiveSlide(prev => Math.max(0, prev - 1))}
-              className={`w-12 h-12 rounded-lg bg-white shadow-md flex items-center justify-center
-                transition-all pointer-events-auto
-                ${activeSlide === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:border-primary'}`}
-              disabled={activeSlide === 0}
-            >
-              <FaChevronLeft className="text-primary w-5 h-5" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setActiveSlide(prev => Math.min(items.length - 1, prev + 1))}
-              className={`w-12 h-12 rounded-lg bg-white shadow-md flex items-center justify-center
-                transition-all pointer-events-auto
-                ${activeSlide === items.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:border-primary'}`}
-              disabled={activeSlide === items.length - 1}
-            >
-              <FaChevronRight className="text-primary w-5 h-5" />
-            </motion.button>
-          </div>
-
           <motion.div
             key={activeSlide}
             initial={{ opacity: 0, y: 20 }}
@@ -80,6 +55,30 @@ export default function Portfolio({ items }: PortfolioProps) {
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.2 }}
             >
+              <div className="absolute inset-0 flex items-center justify-between z-10 px-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setActiveSlide(prev => Math.max(0, prev - 1))}
+                  className={`w-10 h-10 rounded-full bg-white/80 shadow-md flex items-center justify-center
+                    transition-all
+                    ${activeSlide === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:bg-white'}`}
+                  disabled={activeSlide === 0}
+                >
+                  <FaChevronLeft className="text-primary w-4 h-4" />
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setActiveSlide(prev => Math.min(items.length - 1, prev + 1))}
+                  className={`w-10 h-10 rounded-full bg-white/80 shadow-md flex items-center justify-center
+                    transition-all
+                    ${activeSlide === items.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg hover:bg-white'}`}
+                  disabled={activeSlide === items.length - 1}
+                >
+                  <FaChevronRight className="text-primary w-4 h-4" />
+                </motion.button>
+              </div>
               <div className="aspect-[4/3] relative">
                 <Image
                   src={items[activeSlide].image}
