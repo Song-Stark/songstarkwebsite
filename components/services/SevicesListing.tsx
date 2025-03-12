@@ -45,19 +45,19 @@ const ServicesListing: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-16">
+    <section className="py-8 sm:py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             Our <span className="text-primary">Services</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mt-4"></div>
+          <div className="w-16 sm:w-20 h-1 bg-primary mx-auto mt-3 sm:mt-4"></div>
         </div>
-        <p className="text-lg text-gray-700 text-center mx-auto mb-10">
+        <p className="text-base sm:text-lg text-gray-700 text-center mx-auto mb-6 sm:mb-8 md:mb-10 max-w-2xl">
           Explore our comprehensive range of services designed to meet your needs and exceed your expectations.
         </p>
-        <div className="relative mb-14">
+        <div className="relative mb-8 sm:mb-10 md:mb-14">
           <div 
             ref={scrollRef}
             className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
@@ -66,9 +66,9 @@ const ServicesListing: React.FC = () => {
             {Object.values(services).map((service) => (
               <div 
                 key={service.id}
-                className="flex-none w-full sm:w-1/2 lg:w-1/3 px-3 snap-center"
+                className="flex-none w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-3 snap-center"
               >
-                <div className="relative h-[400px] rounded-lg overflow-hidden group">
+                <div className="relative h-[300px] sm:h-[350px] md:h-[400px] rounded-lg overflow-hidden group">
                   <motion.div 
                     className="h-full w-full"
                     initial={{ opacity: 0 }}
@@ -84,23 +84,23 @@ const ServicesListing: React.FC = () => {
                     />
                     
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                      <div className="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 className="text-2xl font-bold text-white mb-3">
+                      <div className="absolute bottom-0 left-0 p-4 sm:p-5 md:p-6 w-full">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
                           {service.title}
                         </h3>
-                        <p className="text-white/90 text-sm mb-4 line-clamp-2">
+                        <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2">
                           {service.description}
                         </p>
                         {service.website && (
                           <Link 
                             href={service.website}
-                            className="inline-flex items-center px-4 py-2 bg-white text-primary rounded-lg
-                              hover:bg-secondary transition-all duration-300 group text-sm"
+                            className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-white text-primary rounded-lg
+                              hover:bg-secondary transition-all duration-300 group text-xs sm:text-sm"
                           >
                             Learn More
                             <FontAwesomeIcon 
                               icon={faExternalLinkAlt}
-                              className="ml-2 w-3 h-3 group-hover:translate-x-1 transition-transform" 
+                              className="ml-2 w-2.5 sm:w-3 h-2.5 sm:h-3 group-hover:translate-x-1 transition-transform" 
                             />
                           </Link>
                         )}

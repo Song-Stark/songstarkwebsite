@@ -1,6 +1,7 @@
 export interface ServiceDetails {
     id: string;
     title: string;
+    heroTitle?: string;
     description: string;
     longDescription: string[];
     features: string[];
@@ -28,6 +29,7 @@ export interface ServiceDetails {
     "it-solutions": {
       id: "it-solutions",
       title: "IT Services",
+      heroTitle: "Transform Your Business with Modern IT Solutions",
       description: "End-to-end digital transformation solutions including custom software development, cloud services, and strategic IT consulting to drive your business forward.",
       longDescription: [
         "Our IT services division specializes in delivering cutting-edge digital solutions that help businesses thrive in the modern digital landscape.",
@@ -166,7 +168,8 @@ export interface ServiceDetails {
     },
     "tours-and-travel": {
       id: "tours-and-travel",
-      title: "Tour Services",
+      title: "Tour Services ",
+      heroTitle: "Discover the Beauty of East Africa",
       description: "Providing exceptional tour services in Rwanda and Uganda for both locals and internationals.",
       longDescription: [
         "Experience the best of both worlds with our specialized tour services in Rwanda and Uganda.",
@@ -186,6 +189,7 @@ export interface ServiceDetails {
     "korean-cosmetics": {
       id: "korean-cosmetics",
       title: "Korean Cosmetics",
+      heroTitle: "Shop the best of Korean Beauty",
       description: "K-MART is an online  Korean cosmetics store that sells Korean cosmetics in Rwanda.",
       longDescription: [
         "Discover the best of Korean beauty with our curated selection of premium cosmetics.",
@@ -205,6 +209,7 @@ export interface ServiceDetails {
     "real-estate": {
       id: "real-estate",
       title: "Real Estate",
+      heroTitle: "Your Trusted Partner in Real Estate",
       description: "Comprehensive real estate services including property management and buyer-seller connections.",
       longDescription: [
         "Our real estate division offers comprehensive property solutions in Rwanda's growing market.",
@@ -224,6 +229,7 @@ export interface ServiceDetails {
     "art-gallery": {
       id: "art-gallery",
       title: "Art Gallery",
+      heroTitle: "A Global Canvas Online",
       description: "A Global Canvas Online. Paintings. Purchase and sell the best in contemporary art online.",
       longDescription: [
         "Our online art gallery showcases exceptional works from talented artists across the globe.",

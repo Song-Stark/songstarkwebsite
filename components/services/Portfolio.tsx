@@ -1,4 +1,4 @@
-"use client";  // This must be the first line of the file
+"use client";  
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -37,7 +37,7 @@ export default function Portfolio({ items }: PortfolioProps) {
             Portfolio Showcase
           </span>
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Our Success Stories
+            Some of Our Work
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>

@@ -7,14 +7,15 @@ import { motion } from "framer-motion";
 
 interface HeroProps {
   title: string;
+  heroTitle: string;
   description: string;
   visual: string;
   website?: string;
 }
 
-export default function Hero({ title, description, visual, website }: HeroProps) {
+export default function Hero({ title, heroTitle, description, visual, website }: HeroProps) {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-12 items-center py-12">
         <motion.div
           initial={{ x: -20, opacity: 0 }}
@@ -32,7 +33,7 @@ export default function Hero({ title, description, visual, website }: HeroProps)
           </motion.div>
           
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Transform Your Business With Our {title}
+            {heroTitle}
           </h1>
           
           <p className="text-xl text-gray-600 leading-relaxed">

@@ -16,12 +16,12 @@ const OurMission: React.FC = () => {
   return (
     <section className="py-16 bg-gradient-to-r from-blue-50 to-white">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Title Section - More concise */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">
+        {/* Title Section */}
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">
             Who we are is defined by
           </h2>
-          <div className="flex flex-col md:flex-row items-center justify-center text-3xl font-bold">
+          <div className="flex flex-col md:flex-row items-center justify-center text-2xl sm:text-3xl font-bold">
             <span className="text-primary">our culture</span>
             <span className="mx-2">and</span>
             <span className="text-primary">values</span>

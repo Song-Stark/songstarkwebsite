@@ -61,7 +61,33 @@ export default function Header(): React.ReactElement {
 
   const renderNavItem = ({ label, href, isButton, hasDropdown, dropdownItems }: NavItem): React.ReactElement => {
     const isActive = pathname === href;
-    
+     
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return (
+        <div className="w-full">
+          {isButton ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-secondary px-4 py-2 rounded-3xl hover:opacity-80 block w-full"
+            >
+              {label}
+            </a>
+          ) : (
+            <Link
+              href={href}
+              className={`relative block w-full ${
+                `after:content-[''] after:absolute after:h-[2px] after:bg-white after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 
+                 ${isActive ? 'after:w-[20px]' : 'after:w-0 hover:after:w-[20px]'}`
+              }`}
+            >
+              {label}
+            </Link>
+          )}
+        </div>
+      );
+    }
     return (
       <div
         key={href}

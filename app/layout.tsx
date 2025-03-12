@@ -24,7 +24,14 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   icons: {
-    icon: "/icon.ico",
+    icon: [
+      {
+        url: '/icon.ico',
+        sizes: 'any',
+      },
+    ],
+    shortcut: '/icon.ico',
+    apple: '/icon.ico',
   },
   title: "Song & Stark coopeartion Rwanda",
   description: "Song & Stark coopeartion Rwanda",

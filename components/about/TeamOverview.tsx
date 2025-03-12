@@ -36,7 +36,7 @@ const TeamOverview: React.FC = () => {
     {
       name: "Caissy Christine NAKURE",
       position: "Marketing Manager",
-      image: "/images/team/marketing-person.jpeg"
+      image: "/images/team/marketing.jpg"
     },
   ];
 
@@ -45,12 +45,11 @@ const TeamOverview: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6">
         {/* Main Title - More concise */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4 leading-tight max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight max-w-3xl mx-auto">
             We are a <span className="text-primary">diverse team</span> of professionals working with partners to define <span className="text-primary">digital strategies</span>
           </h2>
           <div className="w-16 h-0.5 bg-primary mx-auto"></div>
         </div>
-
         {/* Our Leader Section - More compact */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">Our Leader</h3>

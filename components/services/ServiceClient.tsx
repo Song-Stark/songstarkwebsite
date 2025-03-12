@@ -27,6 +27,7 @@ export default function ServiceClient({ serviceId }: ServiceClientProps) {
       
       <Hero 
         title={service.title}
+        heroTitle={service.heroTitle || service.title}
         description={service.description}
         visual={service.visual}
         website={service.website}
