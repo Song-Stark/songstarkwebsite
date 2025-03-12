@@ -80,7 +80,7 @@ export default function Hero({ title, heroTitle, description, visual, website }:
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="absolute bottom-8 left-8 bg-white p-6 rounded-2xl shadow-xl"
+            className="absolute bottom-8 left-8 bg-white/60 p-6 rounded-2xl shadow-xl"
           >
             <div className="flex gap-8">
               <div>

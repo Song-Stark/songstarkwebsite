@@ -17,8 +17,7 @@ export default function Navigation({ serviceId }: NavigationProps) {
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <div className="fixed top-24 left-1/2 -translate-x-1/2 z-40 hidden md:block">
+      <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <AnimatePresence>
           {isExpanded ? (
             <motion.div 
@@ -53,8 +52,6 @@ export default function Navigation({ serviceId }: NavigationProps) {
                     )}
                   </Link>
                 ))}
-
-                {/* Back Button */}
                 <div className="h-full border-l border-gray-200 mx-2" />
                 <Link 
                   href="/services"
@@ -81,7 +78,7 @@ export default function Navigation({ serviceId }: NavigationProps) {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="fixed top-24 left-1/2 -translate-x-1/2 z-40 md:hidden w-[95%] max-w-md">
+      <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 md:hidden w-[95%] max-w-md">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="w-full bg-white/95 backdrop-blur-md rounded-[20px] shadow-md px-4 py-3 border border-gray-100 flex items-center justify-between"

@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/icon.ico',
+        url: '/images/siteicon.ico',
         sizes: 'any',
       },
     ],
-    shortcut: '/icon.ico',
-    apple: '/icon.ico',
+    shortcut: '/images/siteicon.ico',
+    apple: '/images/siteicon.ico',
   },
   title: "Song & Stark coopeartion Rwanda",
   description: "Song & Stark coopeartion Rwanda",
@@ -45,9 +45,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}>
       <body className="font-poppins">
-        <div className=" flex flex-col min-h-screen w-screen  overflow-x-hidden">
+        <div className="flex flex-col min-h-screen w-screen overflow-x-hidden">
           <Header />
-          <main className="flex-grow">  
+          <main className="flex-grow">
             {children}
           </main>
           <Footer />
