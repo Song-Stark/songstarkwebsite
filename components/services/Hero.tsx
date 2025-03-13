@@ -11,9 +11,14 @@ interface HeroProps {
   description: string;
   visual: string;
   website?: string;
+  statistics?: {
+    label: string;
+    value: string;
+  }[];
 }
 
-export default function Hero({ title, heroTitle, description, visual, website }: HeroProps) {
+export default function Hero({ title, heroTitle, description, visual, website, statistics }: HeroProps) {
+  console.log('Statistics:', statistics);
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-12 items-center py-12">
@@ -32,11 +37,21 @@ export default function Hero({ title, heroTitle, description, visual, website }:
             </span>
           </motion.div>
           
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            {heroTitle}
+          <h1 className="text-4xl lg:text-5xl font-semibold leading-[1.2] lg:leading-[1.2] tracking-tight mb-6">
+            {(() => {
+              const words = heroTitle.split(' ');
+              const lastTwoWords = words.slice(-2).join(' ');
+              const remainingWords = words.slice(0, -2).join(' ');
+              return (
+                <>
+                  {remainingWords && <span className="text-primary">{remainingWords} </span>}
+                  <span className="text-secondary">{lastTwoWords}</span>
+                </>
+              );
+            })()}
           </h1>
           
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg text-gray-600 leading-[1.8] lg:leading-[1.8] max-w-2xl">
             {description}
           </p>
 
@@ -76,23 +91,29 @@ export default function Hero({ title, heroTitle, description, visual, website }:
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
           </div>
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="absolute bottom-8 left-8 bg-white/60 p-6 rounded-2xl shadow-xl"
-          >
-            <div className="flex gap-8">
-              <div>
-                <div className="text-3xl font-bold text-primary">100+</div>
-                <div className="text-gray-600">Projects</div>
+
+          {statistics && statistics.length > 0 && (
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="absolute bottom-8 left-8 bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-xl"
+            >
+              <div className="flex gap-8">
+                {statistics.map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
+                  >
+                    <div className="text-3xl font-bold text-secondary">{stat.value}</div>
+                    <div className="text-gray-600">{stat.label}</div>
+                  </motion.div>
+                ))}
               </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">95%</div>
-                <div className="text-gray-600">Satisfaction</div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </div>

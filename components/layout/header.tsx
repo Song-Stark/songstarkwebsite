@@ -217,8 +217,8 @@ export default function Header(): React.ReactElement {
   return (
     <>
       <header className={`fixed w-full z-[1000] transition-all duration-500 ease-out ${
-        isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary'
-      } text-white  py-3`}>
+        isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary shadow-xl'
+      } text-white  py-3`}>  
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}

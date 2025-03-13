@@ -25,7 +25,6 @@ const HomeHero: FC<HomeHeroProps> = ({
       >
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-800/60 to-slate-900/80" />
       </div>
-
       {/* Content */}
       <div className="relative flex h-full items-center max-w-6xl mx-auto justify-start sm:justify-start text-left sm:text-left px-4 sm:px-6">
         <div className="text-white py-8 max-w-4xl text-center sm:text-left">

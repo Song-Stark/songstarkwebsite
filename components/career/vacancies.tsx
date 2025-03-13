@@ -3,17 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { VacancyType, vacancies } from '@/data/vacancies';
 
-interface VacancyProps {
-  title: string;
-  location: string;
-  type: string;
-  description: string;
-  deadline: {
-    from: string;
-    to: string;
-  };
-}
+interface VacancyProps extends VacancyType {}
 
 const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, description, deadline }) => (
   <motion.div
@@ -47,30 +39,6 @@ const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, descriptio
 );
 
 const Vacancies: React.FC = () => {
-  const vacancies = [
-    {
-      title: "Senior Software Engineer",
-      location: "Remote",
-      type: "Full-time",
-      description: "We're looking for an experienced software engineer to join our team...",
-      deadline: {
-        from: "2024-03-01T00:00:00",
-        to: "2024-03-31T23:59:59"
-      }
-    },
-    {
-      title: "Graphic Designer",
-      location: "Remote",
-      type: "Full-time",
-      description: "We're looking for an experienced graphic designer to join our team...",
-      deadline: {
-        from: "2024-03-01T00:00:00",
-        to: "2024-03-31T23:59:59"
-      }
-    },
-    
-  ];
-
   return (
     <div className="container mx-auto py-12 px-4">
       <div className="mb-12 text-center">
@@ -83,9 +51,30 @@ const Vacancies: React.FC = () => {
         </p>
       </div>
       <div className="space-y-6 max-w-4xl mx-auto">
-        {vacancies.map((vacancy, index) => (
-          <VacancyCard key={index} {...vacancy} />
-        ))}
+        {vacancies.length > 0 ? (
+          vacancies.map((vacancy, index) => (
+            <VacancyCard key={index} {...vacancy} />
+          ))
+        ) : (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-16 bg-white rounded-lg border border-gray-100"
+          >
+            <div className="text-primary text-6xl mb-6">🔍</div>
+            <h3 className="text-2xl font-bold mb-3">
+              <span className="text-primary">No Open</span>
+              <span className="text-secondary"> Positions</span>
+            </h3>
+            <p className="text-gray-600 max-w-md mx-auto">
+              We currently don't have any open positions. Please check back later or 
+              follow us on social media for updates.
+            </p>
+            <button className="mt-6 bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+              Subscribe for Updates
+            </button>
+          </motion.div>
+        )}
       </div>
     </div>
   );

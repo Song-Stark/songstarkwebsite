@@ -3,6 +3,7 @@ import Hero from './Hero';
 import Features from './Features';
 import WhyChooseUs from './WhyChooseUs';
 import Portfolio from './Portfolio';
+import Packages from './Packages';
 import CTA from './CTA';
 import { services } from "@/data/servicedetails";
 
@@ -31,6 +32,7 @@ export default function ServiceClient({ serviceId }: ServiceClientProps) {
         description={service.description}
         visual={service.visual}
         website={service.website}
+        statistics={service.statistics}
       />
 
       <Features features={service.features} />
@@ -38,6 +40,10 @@ export default function ServiceClient({ serviceId }: ServiceClientProps) {
       {service.whyChooseUs && (
         <WhyChooseUs items={service.whyChooseUs} />
       )}
+      {service.packages && (
+        <Packages packages={service.packages} />
+      )}
+
 
       {service.portfolio && service.portfolio.length > 0 && (
         <Portfolio items={service.portfolio} />

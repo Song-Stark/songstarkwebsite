@@ -114,21 +114,23 @@ const Footer: FC = () => {
               <p className="text-gray-600">
                 Get latest news and promotions direct in your inbox!
               </p>
-              <form className="flex gap-1">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="flex-1 rounded-md bg-white px-4 py-2 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary border border-gray-200"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-secondary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center"
-                  aria-label="Subscribe to newsletter"
-                >
-                  <FaPaperPlane className="h-4 w-4" />
-                </button>
-              </form>
+              <div className="max-w-xs">
+                <form className="flex gap-1">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="flex-1 rounded-md bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary border border-gray-200"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-white hover:bg-secondary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary flex items-center justify-center"
+                    aria-label="Subscribe to newsletter"
+                  >
+                    <FaPaperPlane className="h-4 w-4" />
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

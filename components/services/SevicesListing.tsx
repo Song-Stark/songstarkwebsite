@@ -10,7 +10,24 @@ import Image from 'next/image';
 
 const ServicesListing: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [totalSlides, setTotalSlides] = useState(1);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateTotalSlides = () => {
+      if (window.innerWidth >= 1024) { // lg breakpoint
+        setTotalSlides(Math.ceil(Object.keys(services).length / 3));
+      } else if (window.innerWidth >= 640) { // sm breakpoint
+        setTotalSlides(Math.ceil(Object.keys(services).length / 2));
+      } else {
+        setTotalSlides(Object.keys(services).length);
+      }
+    };
+
+    updateTotalSlides();
+    window.addEventListener('resize', updateTotalSlides);
+    return () => window.removeEventListener('resize', updateTotalSlides);
+  }, []);
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -147,7 +164,7 @@ const ServicesListing: React.FC = () => {
             ))}
           </div>
           <div className="flex justify-center items-center gap-2 mt-8">
-            {Object.values(services).map((_, index) => (
+            {[...Array(totalSlides)].map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollToSlide(index)}

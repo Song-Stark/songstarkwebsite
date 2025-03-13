@@ -96,7 +96,7 @@ const HomeProjects: React.FC = () => {
           ))}
         </div>
         <div className="flex justify-center">
-          <Link href="/services" className="text-white hover:bg-secondary bg-primary px-6 py-3 rounded-md">
+          <Link href="/services" className="text-white hover:bg-secondary bg-primary px-6 py-3 rounded-full">
             View All Projects
           </Link>
         </div>

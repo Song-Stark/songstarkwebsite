@@ -7,6 +7,10 @@ export interface ServiceDetails {
     features: string[];
     visual: string;
     website?: string;
+    statistics?: {
+      label: string;
+      value: string;
+    }[];
     whyChooseUs?: {
       icon: string;
       title: string;
@@ -23,14 +27,21 @@ export interface ServiceDetails {
       image: string;
       link: string;
     }[];
+    packages?: {
+      name: string;
+      price: string;
+      description: string;
+      features: string[];
+      isRecommended?: boolean;
+    }[];
   }
   
   export const services: Record<string, ServiceDetails> = {
     "it-solutions": {
       id: "it-solutions",
       title: "IT Services",
-      heroTitle: "Transform Your Business with Modern IT Solutions",
-      description: "End-to-end digital transformation solutions including custom software development, cloud services, and strategic IT consulting to drive your business forward.",
+      heroTitle: "Empowering Your Business with Modern IT Solutions",
+      description: "At SongStark IT Solutions, we provide comprehensive digital transformation services including custom software development, web and mobile app development, cloud solutions, UI/UX design, database management, and strategic IT consulting. We help you streamline operations, improve efficiency, and achieve long-term growth",
       longDescription: [
         "Our IT services division specializes in delivering cutting-edge digital solutions that help businesses thrive in the modern digital landscape.",
         "We combine technical expertise with creative problem-solving to build custom software applications that perfectly match your business requirements.",
@@ -164,6 +175,56 @@ export interface ServiceDetails {
           link: "https://imceltd.com/"
         },
 
+      ],
+      statistics: [
+        { label: "Projects", value: "50+" },
+        { label: "Satisfaction", value: "100%" }
+      ],
+      packages: [
+        {
+          name: "Standard",
+          price: "300,000",
+          description: "Single-page scrolling responsive landing page production includes input forms, social login, admin pages, etc.",
+          features: [
+            "1 Pages",
+            "3 Days Delivery",
+            "1 Month Revision",
+            "Custom Design",
+            "Responsive Web",
+            "Basic SEO"
+          ]
+        },
+        {
+          name: "Deluxe",
+          price: "800,000",
+          description: "General corporate responsive website production includes input forms, social login, pop-up management member management statistics, admin pages, etc.",
+          features: [
+            "7 Pages",
+            "7 Days Delivery",
+            "3 Month Revision",
+            "Custom Design",
+            "Responsive Web",
+            "Advanced SEO",
+            "Member Management",
+            "Statistics Dashboard"
+          ],
+          isRecommended: true
+        },
+        {
+          name: "Premium",
+          price: "1,200,000",
+          description: "High-end responsive website production includes all Deluxe Package features + admin pages, etc.",
+          features: [
+            "10 Pages",
+            "9 Days Delivery",
+            "6 Month Revision",
+            "Custom Design",
+            "Responsive Web",
+            "Premium SEO",
+            "Advanced Features",
+            "Priority Support"
+          ]
+        }
       ]
     },
     "tours-and-travel": {
@@ -184,7 +245,11 @@ export interface ServiceDetails {
         "Transportation Services"
       ],
       visual: "/images/services/tour3.jpg",
-      website: "https://songstarktours.com/"
+      website: "https://songstarktours.com/",
+      statistics: [
+        { label: "Tours", value: "200+" },
+        { label: "Happy Clients", value: "95%" }
+      ],
     },
     "korean-cosmetics": {
       id: "korean-cosmetics",
@@ -204,7 +269,11 @@ export interface ServiceDetails {
         "Beauty Workshops"
       ],
       visual: "/images/services/cosmetics.jpg",
-      website: "https://www.k-martrwanda.com/"
+      website: "https://www.k-martrwanda.com/",
+      statistics: [
+        { label: "Products", value: "1000+" },
+        { label: "Customers", value: "500+" }
+      ],
     },
     "real-estate": {
       id: "real-estate",
@@ -224,7 +293,11 @@ export interface ServiceDetails {
         "Legal Support"
       ],
       visual: "/images/services/real-estate.jpg",
-      website: "https://www.k-realtyrwanda.com/"
+      website: "https://www.k-realtyrwanda.com/",
+      statistics: [
+        { label: "Properties", value: "100+" },
+        { label: "Happy Clients", value: "100%" }
+      ],
     },
     "art-gallery": {
       id: "art-gallery",
@@ -244,6 +317,10 @@ export interface ServiceDetails {
         "Worldwide Shipping"
       ],
       visual: "/images/services/art3.jpg",
-      website: "https://art4africa.cafe24.com/"
+      website: "https://art4africa.cafe24.com/",
+      statistics: [
+        { label: "Artworks", value: "300+" },
+        { label: "Artists", value: "50+" }
+      ],
     }
   };
