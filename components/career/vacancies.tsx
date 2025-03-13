@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { VacancyType, vacancies } from '@/data/vacancies';
 
-interface VacancyProps extends VacancyType {}
+type VacancyProps = VacancyType;
 
 const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, description, deadline }) => (
   <motion.div
@@ -67,7 +67,7 @@ const Vacancies: React.FC = () => {
               <span className="text-secondary"> Positions</span>
             </h3>
             <p className="text-gray-600 max-w-md mx-auto">
-              We currently don't have any open positions. Please check back later or 
+              We currently don&apos;t have any open positions. Please check back later or 
               follow us on social media for updates.
             </p>
             <button className="mt-6 bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors">

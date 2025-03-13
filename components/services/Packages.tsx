@@ -31,7 +31,7 @@ const Packages: React.FC<PackageProps> = ({ packages }) => {
     <div className="max-w-7xl mx-auto px-4 py-16">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-primary mb-3">
-          We've Got A Plan That's Perfect For You
+          We&apos;ve Got A Plan That&apos;s Perfect For You
         </h2>
       </div>
       
