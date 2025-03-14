@@ -21,7 +21,12 @@ const TeamOverview: React.FC = () => {
     {
       name: "Eric Muhire MUDASAYA",
       position: "General Manager",
-      image: "/images/team/gm-person.jpeg"
+      image: "/images/team/gm-person.jpg"
+    },  
+    {
+      name: " Hongju Joseph NA",
+      position: "Senior Advisor",
+      image: "/images/team/senior-advisor.jpeg"
     },  
     {
       name: "Leonard TUMUSHIME",
@@ -42,7 +47,7 @@ const TeamOverview: React.FC = () => {
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Main Title - More concise */}
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight max-w-3xl mx-auto">
@@ -51,9 +56,7 @@ const TeamOverview: React.FC = () => {
           <div className="w-16 h-0.5 bg-primary mx-auto"></div>
         </div>
         {/* Our Leader Section - More compact */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Our Leader</h3>
-          
+        <div className="mb-16">     
           <div className="flex flex-col md:flex-row items-center gap-8 max-w-3xl mx-auto">
             {/* Circular Image - Smaller */}
             <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary shadow-md">
@@ -78,9 +81,7 @@ const TeamOverview: React.FC = () => {
 
         {/* Our Team Section - More compact */}
         <div>
-          <h3 className="text-2xl font-bold text-center mb-8">Our Leadership Team</h3>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {teamLeaders.map((leader, index) => (
               <div key={index} className="group text-center">
                 <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 shadow-sm border-2 border-primary/20 hover:border-primary transition-colors duration-300">

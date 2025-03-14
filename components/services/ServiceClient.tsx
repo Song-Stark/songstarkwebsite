@@ -36,15 +36,12 @@ export default function ServiceClient({ serviceId }: ServiceClientProps) {
       />
 
       <Features features={service.features} />
-
-      {service.whyChooseUs && (
-        <WhyChooseUs items={service.whyChooseUs} />
-      )}
       {service.packages && (
         <Packages packages={service.packages} />
       )}
-
-
+{service.whyChooseUs && (
+        <WhyChooseUs items={service.whyChooseUs} />
+      )}
       {service.portfolio && service.portfolio.length > 0 && (
         <Portfolio items={service.portfolio} />
       )}
