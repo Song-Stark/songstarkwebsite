@@ -6,6 +6,7 @@ export interface ServiceDetails {
     longDescription: string[];
     features: string[];
     visual: string;
+    visuals?: string[];
     website?: string;
     statistics?: {
       label: string;
@@ -230,7 +231,7 @@ export interface ServiceDetails {
     "tours-and-travel": {
       id: "tours-and-travel",
       title: "Tour Services ",
-      heroTitle: "Discover the Beauty of East Africa",
+      heroTitle: "Explore East Africa with SongStark Tours",
       description: "Providing exceptional tour services in Rwanda and Uganda for both locals and internationals.",
       longDescription: [
         "Experience the best of both worlds with our specialized tour services in Rwanda and Uganda.",
@@ -245,6 +246,11 @@ export interface ServiceDetails {
         "Transportation Services"
       ],
       visual: "/images/services/tour3.jpg",
+      visuals: [
+        "/images/services/ktour.jpg",
+        "/images/services/tour2.jpg",
+        "/images/services/tour.jpg",
+      ],
       website: "https://songstarktours.com/",
       statistics: [
         { label: "Tours", value: "150+" },
@@ -254,7 +260,7 @@ export interface ServiceDetails {
     "korean-cosmetics": {
       id: "korean-cosmetics",
       title: "Korean Cosmetics",
-      heroTitle: "Shop the best of Korean Beauty",
+      heroTitle: "Shop the best of Korean Beauty with K-MART Rwanda",
       description: "K-MART is an online  Korean cosmetics store that sells Korean cosmetics in Rwanda.",
       longDescription: [
         "Discover the best of Korean beauty with our curated selection of premium cosmetics.",
@@ -278,7 +284,7 @@ export interface ServiceDetails {
     "real-estate": {
       id: "real-estate",
       title: "Real Estate",
-      heroTitle: "Your Trusted Partner in Real Estate",
+      heroTitle: "Your Trusted Partner in Real Estate K-Realty Rwanda",
       description: "Comprehensive real estate services including property management and buyer-seller connections.",
       longDescription: [
         "Our real estate division offers comprehensive property solutions in Rwanda's growing market.",
@@ -302,7 +308,7 @@ export interface ServiceDetails {
     "art-gallery": {
       id: "art-gallery",
       title: "Art Gallery",
-      heroTitle: "A Global Canvas Online",
+      heroTitle: "A Global Canvas Online Art4Africa Gallery",
       description: "A Global Canvas Online. Paintings. Purchase and sell the best in contemporary art online.",
       longDescription: [
         "Our online art gallery showcases exceptional works from talented artists across the globe.",
@@ -317,6 +323,13 @@ export interface ServiceDetails {
         "Worldwide Shipping"
       ],
       visual: "/images/services/art3.jpg",
+      visuals: [
+        "/images/services/k-art3.jpg",
+        "/images/services/k-art1.jpg",
+        "/images/services/k-art2.jpg",
+        "/images/services/k-art4.jpg",
+        "/images/services/k-art5.jpg",
+      ],
       website: "https://art4africa.cafe24.com/",
       statistics: [
         { label: "Artworks", value: "300+" },
