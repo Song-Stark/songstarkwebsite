@@ -31,12 +31,12 @@ const TeamOverview: React.FC = () => {
     {
       name: "Leonard TUMUSHIME",
       position: "Team Lead - IT Solutions",
-      image: "/images/team/it-person.jpeg"
+      image: "/images/team/it.jpg"
     },
     {
       name: "Jessica MUKANSANGA",
       position: "Team Lead - Tour Services",
-      image: "/images/team/tour-person.jpeg"
+      image: "/images/team/tour-person.jpg"
     },
     {
       name: "Caissy Christine NAKURE",

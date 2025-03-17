@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 interface Project {
   title: string;
@@ -56,7 +58,7 @@ const HomeProjects: React.FC = () => {
                   className="block bg-white shadow-md overflow-hidden group relative"
                 >
                   <div className={`relative w-full
-                    ${index === 1 ? 'h-[450px]' : 'h-[400px]'}`}
+                    ${index === 1 ? 'h-[300px] sm:h-[450px]' : 'h-[250px] sm:h-[400px]'}`}
                   >
                     <Image
                       src={project.image}
@@ -69,11 +71,12 @@ const HomeProjects: React.FC = () => {
                       }}
                       className="transition-all duration-300 group-hover:scale-110"
                     />
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="absolute inset-0 bg-black/20 md:bg-black/50 lg:bg-black/50 xl:bg-black/50  flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300">
+                      <div className="text-white text-center transform translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-transform duration-300">
                         <p className="text-xl font-semibold mb-2">Visit Website</p>
-                        <span className="text-sm bg-white/20 px-4 py-2 rounded-full">Click to Open ↗</span>
+                        <span className="text-sm bg-white/40 px-4 py-2 rounded-full font-bold">
+                          Click to Open <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-1 " />
+                        </span>
                       </div>
                     </div>
                   </div>

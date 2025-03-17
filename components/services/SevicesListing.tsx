@@ -98,7 +98,7 @@ const ServicesListing: React.FC = () => {
           {/* Navigation Buttons */}
           <button
             onClick={scrollToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/50 hover:bg-white p-2 rounded-[50%] shadow-md sm:hidden"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/50 hover:bg-white w-10 h-10 flex items-center justify-center rounded-full shadow-md sm:hidden"
             aria-label="Previous slide"
           >
             <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4 text-primary" />
@@ -106,7 +106,7 @@ const ServicesListing: React.FC = () => {
           
           <button
             onClick={scrollToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/50 hover:bg-white p-2 rounded-[50%] shadow-md sm:hidden"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/50 hover:bg-white w-10 h-10 flex items-center justify-center rounded-full shadow-md sm:hidden"
             aria-label="Next slide"
           >
             <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4 text-primary" />

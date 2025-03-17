@@ -28,7 +28,7 @@ const HomeHero: FC<HomeHeroProps> = ({
       {/* Content */}
       <div className="relative flex h-full items-center max-w-6xl mx-auto justify-start sm:justify-start text-left sm:text-left px-4 sm:px-6">
         <div className="text-white py-8 max-w-4xl text-center sm:text-left">
-          <h1 className="mb-4 sm:mb-6 text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight sm:leading-normal font-semibold xl:text-5xl xl:leading-normal opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+          <h1 className="mb-6 sm:mb-6 text-white text-[29.7px]  text-center  lg:text-left xl:text-left md:text-left  sm:text-3xl md:text-4xl lg:text-5xl leading-tight sm:leading-normal font-semibold xl:text-5xl xl:leading-normal opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             {title}
           </h1>
           <p className="text-base sm:text-base leading-relaxed font-light lg:text-lg xl:leading-8 mb-8 sm:mb-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms' }}>

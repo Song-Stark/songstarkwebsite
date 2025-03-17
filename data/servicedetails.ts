@@ -178,7 +178,7 @@ export interface ServiceDetails {
       ],
       statistics: [
         { label: "Projects", value: "50+" },
-        { label: "Satisfaction", value: "100%" }
+        { label: "Satisfaction", value: "98%" }
       ],
       packages: [
         {
@@ -247,7 +247,7 @@ export interface ServiceDetails {
       visual: "/images/services/tour3.jpg",
       website: "https://songstarktours.com/",
       statistics: [
-        { label: "Tours", value: "200+" },
+        { label: "Tours", value: "150+" },
         { label: "Happy Clients", value: "95%" }
       ],
     },

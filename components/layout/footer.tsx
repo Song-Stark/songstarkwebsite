@@ -78,8 +78,8 @@ const Footer: FC = () => {
                 <span className="text-gray-600 text-base"> 0782-892-433</span>
               </p>
               <p className="flex items-center">
-                <strong className="text-primary min-w-[60px] text-base">E-mail:</strong>
-                <span className="text-gray-600 text-base"> eric@songstark.com</span>
+                <strong className="text-primary min-w-[60px] text-base">E-mail:&nbsp;</strong>
+                <span className="text-gray-600 text-base">eric@songstark.com</span>
               </p>
             </div>
           </div>
@@ -118,7 +118,7 @@ const Footer: FC = () => {
                 <form className="flex gap-1">
                   <input
                     type="email"
-                    placeholder="Email"
+                    placeholder="E-mail"
                     className="flex-1 rounded-md bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary border border-gray-200"
                     required
                   />

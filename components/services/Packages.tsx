@@ -30,12 +30,60 @@ const Packages: React.FC<PackageProps> = ({ packages }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-primary mb-3">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2 md:mb-3">
           We&apos;ve Got A Plan That&apos;s Perfect For You
         </h2>
       </div>
       
-      <div className="overflow-visible pt-8">
+      {/* Mobile view - stack cards vertically */}
+      <div className="md:hidden space-y-8 pt-6">
+        {packages.map((pkg, index) => (
+          <div 
+            key={index}
+            className={`rounded-lg overflow-visible shadow-lg ${
+              pkg.isRecommended ? 'border-2 border-secondary relative pt-4' : ''
+            }`}
+          >
+            {pkg.isRecommended && (
+              <div className="absolute -top-5 left-0 right-0 flex justify-center">
+                <span className="bg-secondary text-white px-8 py-2 rounded-full text-sm font-medium inline-block">
+                  Recommended
+                </span>
+              </div>
+            )}
+            <div className={`p-6 ${pkg.isRecommended ? 'bg-white' : 'bg-primary rounded-lg text-white'}`}>
+              <h3 className="text-xl font-bold mb-4">{pkg.name}</h3>
+              <p className="font-bold text-lg mb-2">{pkg.price} RWF</p>
+              <p className="text-sm mb-4">{pkg.description}</p>
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span>Custom Design</span>
+                  <span>{hasFeature(pkg.features, 'Custom Design') ? '✓' : '−'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Responsive Design</span>
+                  <span>{hasFeature(pkg.features, 'Responsive') ? '✓' : '−'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Number of Pages</span>
+                  <span>{getFeatureValue(pkg.features, 'Pages')}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Working Days</span>
+                  <span>{getFeatureValue(pkg.features, 'Delivery')} Days</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Revision Limit</span>
+                  <span>{getFeatureValue(pkg.features, 'Revision')} Month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop view - table layout */}
+      <div className="hidden md:block overflow-visible pt-8">
         <table className="w-full border-collapse">
           <thead>
             <tr>
@@ -56,7 +104,7 @@ const Packages: React.FC<PackageProps> = ({ packages }) => {
                       </span>
                     </div>
                   )}
-                  <div className="text-xl font-bold">{pkg.name}</div>
+                  <div className="text-xl font-bold ">{pkg.name}</div>
                 </th>
               ))}
             </tr>
@@ -159,17 +207,17 @@ const Packages: React.FC<PackageProps> = ({ packages }) => {
             </tr>
           </tbody>
         </table>
+      </div>
 
-        <div className="text-center mt-10">
-          <Link href="/contact" className="inline-block">
-            <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md text-base font-semibold transition-colors duration-200">
-              Get Quote
-            </button>
-          </Link>
-          <p className="text-gray-600 mt-3 text-sm">
-            Need a custom plan? <Link href="/contact" className="text-primary font-semibold hover:underline">Contact us</Link>
-          </p>
-        </div>
+      <div className="text-center mt-10">
+        <Link href="/contact" className="inline-block">
+          <button className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md text-base font-semibold transition-colors duration-200">
+            Get Quote
+          </button>
+        </Link>
+        <p className="text-gray-600 mt-3 text-sm">
+          Need a custom plan? <Link href="/contact" className="text-primary font-semibold hover:underline">Contact us</Link>
+        </p>
       </div>
     </div>
   );
