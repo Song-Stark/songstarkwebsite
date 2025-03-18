@@ -60,7 +60,7 @@ const OurStory: React.FC = () => {
 
             <Link 
               href="/contact" 
-              className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all"
+              className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 border border-primary text-primary rounded-md font-semibold shadow-sm text-sm md:text-base md:font-semibold hover:bg-primary hover:text-white transition-all"
             >
               Connect With Us
               <FontAwesomeIcon icon={faChevronRight} className="ml-2 w-4 h-4" />

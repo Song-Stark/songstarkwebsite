@@ -247,9 +247,12 @@ export interface ServiceDetails {
       ],
       visual: "/images/services/tour3.jpg",
       visuals: [
-        "/images/services/ktour.jpg",
+   
+        "/images/services/tour3.jpg",
         "/images/services/tour2.jpg",
-        "/images/services/tour.jpg",
+        "/images/services/ktour.jpg",
+        "/images/services/ktour2.jpeg",
+        "/images/services/ktour1.jpeg",
       ],
       website: "https://songstarktours.com/",
       statistics: [

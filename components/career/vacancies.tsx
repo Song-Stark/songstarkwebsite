@@ -42,7 +42,7 @@ const Vacancies: React.FC = () => {
   return (
     <div className="container mx-auto py-12 px-4">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl font-bold mb-2">
+        <h2 className="text-2xl sm:text-4xl font-bold mb-2">
           <span className="text-primary">Open</span>
           <span className="text-secondary"> Positions</span>
         </h2>
@@ -62,7 +62,7 @@ const Vacancies: React.FC = () => {
             className="text-center py-16 bg-white rounded-lg border border-gray-100"
           >
             <div className="text-primary text-6xl mb-6">🔍</div>
-            <h3 className="text-2xl font-bold mb-3">
+            <h3 className="text-xl sm:text-3xl font-bold mb-3">
               <span className="text-primary">No Open</span>
               <span className="text-secondary"> Positions</span>
             </h3>

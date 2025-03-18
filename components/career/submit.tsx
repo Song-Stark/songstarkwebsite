@@ -89,7 +89,7 @@ const SubmitCV: React.FC = () => {
   return (
     <div className="container mx-auto py-20 px-4 ">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl font-bold mb-2">
+        <h2 className="text-2xl sm:text-4xl  font-bold mb-2">
           <span className="text-primary">No role fits</span>
           <span className="text-secondary"> you?</span>
         </h2>

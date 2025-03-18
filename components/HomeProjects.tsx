@@ -58,7 +58,7 @@ const HomeProjects: React.FC = () => {
                   className="block bg-white shadow-md overflow-hidden group relative"
                 >
                   <div className={`relative w-full
-                    ${index === 1 ? 'h-[300px] sm:h-[450px]' : 'h-[250px] sm:h-[400px]'}`}
+                    ${index === 1 ? 'h-[220px] sm:h-[450px]' : 'h-[220px] sm:h-[400px]'}`}
                   >
                     <Image
                       src={project.image}
@@ -82,7 +82,7 @@ const HomeProjects: React.FC = () => {
                   </div>
                 </Link>
 
-                <div className={`mt-6 text-center relative z-30 p-4
+                <div className={`mt-6 text-center relative z-30 p-2 md:p-4
                   ${index === 1 ? 'md:scale-100 md:mt-4' : ''}
                 `}>
                   <h3 className={`font-bold mb-3 text-gray-900 text-center max-w-sm mx-auto
@@ -99,7 +99,7 @@ const HomeProjects: React.FC = () => {
           ))}
         </div>
         <div className="flex justify-center">
-          <Link href="/services" className="text-white hover:bg-secondary bg-primary px-6 py-3 rounded-full">
+          <Link href="/services" className="text-white hover:bg-secondary bg-primary px-6 py-3 rounded-md">
             View All Projects
           </Link>
         </div>

@@ -37,13 +37,13 @@ const HomeHero: FC<HomeHeroProps> = ({
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 opacity-0 animate-fade-in-up w-1/2 mx-auto sm:w-auto sm:mx-0" style={{ animationDelay: '700ms' }}>
             <Link 
               href="/services" 
-              className="w-full sm:w-auto bg-secondary hover:bg-secondary/80 text-white px-5 sm:px-6 py-2.5 rounded-full transition-all duration-300 transform hover:scale-102 font-medium text-sm text-center"
+              className="w-full sm:w-auto bg-secondary hover:bg-secondary/80 text-white px-5 sm:px-6 py-2.5 rounded-md transition-all duration-300 transform hover:scale-102 font-medium text-sm text-center"
             >
               Our Services
             </Link>
             <Link 
               href="/contact" 
-              className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-5 sm:px-6 py-2.5 rounded-full transition-all duration-300 transform hover:scale-102 font-medium text-sm text-center"
+              className="w-full sm:w-auto bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-5 sm:px-6 py-2.5 rounded-md transition-all duration-300 transform hover:scale-102 font-medium text-sm text-center"
             >
               Contact Us
             </Link>

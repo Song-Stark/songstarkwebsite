@@ -194,12 +194,21 @@ export default function Header(): React.ReactElement {
           </Link>
         )}
         {hasDropdown && activeDropdown === label && (
-          <div className="absolute left-0 mt-1 w-72 bg-white rounded-lg shadow-lg py-2 text-gray-800 before:content-[''] before:absolute before:top-[-15px] before:left-0 before:right-0 before:h-[15px] before:transparent">
+          <div 
+            className="absolute left-0 mt-1 w-72 bg-white rounded-lg shadow-lg py-2 text-gray-800 
+            before:content-[''] before:absolute before:top-[-15px] before:left-0 before:right-0 before:h-[15px] before:transparent
+            transition-all duration-300 ease-in-out transform origin-top
+            opacity-100 scale-100"
+            style={{
+              transformOrigin: 'top center',
+              animation: 'dropdownFade 0.3s ease-in-out'
+            }}
+          >
             {dropdownItems?.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-3 pb-4 relative hover:bg-gray-50"
+                className="block px-4 py-3 pb-4 relative hover:bg-gray-50 transition-colors duration-200"
               >
                 <span className={`relative after:content-[''] after:absolute after:h-[2px] after:bg-primary after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 ${
                   pathname === item.href ? 'after:w-[20px]' : 'after:w-0 hover:after:w-[20px]'
@@ -214,8 +223,22 @@ export default function Header(): React.ReactElement {
     );
   };
 
+  const globalStyles = `
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  `;
+
   return (
     <>
+      <style jsx global>{globalStyles}</style>
       <header className={`fixed w-full z-[1000] transition-all duration-500 ease-out ${
         isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary shadow-xl'
       } text-white  py-3`}>  

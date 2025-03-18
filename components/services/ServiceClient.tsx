@@ -31,6 +31,7 @@ export default function ServiceClient({ serviceId }: ServiceClientProps) {
         heroTitle={service.heroTitle || service.title}
         description={service.description}
         visual={service.visual}
+        visuals={service.visuals}
         website={service.website}
         statistics={service.statistics}
       />

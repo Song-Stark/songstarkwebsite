@@ -51,11 +51,11 @@ const ContactForm = () => {
     <div className="container mx-auto py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
-          <h2 className="text-3xl font-bold mb-2">
+          <h2 className="text-2xl sm:text-4xl font-bold mb-2">
             <span className="text-primary">Just say</span>
             <span className="text-secondary"> HELLO!</span>
           </h2>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 mb-8 ">
             We&apos;d love to hear from you! Whether you want one of our services, it&apos;s a fresh project, an exciting idea, or a chance to collaborate, we&apos;re here and eager to be a part of your vision. Reach out anytime!
           </p>
 

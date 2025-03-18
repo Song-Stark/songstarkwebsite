@@ -82,7 +82,7 @@ const ServicesListing: React.FC = () => {
   }, []);
 
   return (
-    <section className="py-8 sm:py-12 md:py-16">
+    <section className="py-4 sm:py-8 md:py-16">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8 md:mb-10">

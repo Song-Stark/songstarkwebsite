@@ -6,7 +6,7 @@ import { FaMapMarkerAlt, FaArrowRight, FaRegClock, FaEnvelope } from 'react-icon
 const Location: React.FC = () => {
   return (
     <section className="w-full bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 py-20">
+      <div className="max-w-6xl mx-auto px-4 py-8 md:px-4 md:py-20">
         <div className="flex flex-col lg:flex-row items-start gap-16">
           {/* Main content */}
           <div className="lg:w-7/12 relative z-10">
@@ -22,7 +22,7 @@ const Location: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 mb-8">
               <a 
                 href="/contact"
-                className="group flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-all duration-300 hover:gap-3 text-sm"
+                className="group flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-all duration-300 hover:gap-3 text-sm"
               >
                 <span className="font-medium">Get in Touch</span>
                 <FaArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -31,11 +31,11 @@ const Location: React.FC = () => {
                 href="https://www.google.com/maps/place/Song+%26+Stark+Cooperation+Rwanda/@-1.9587183,30.1080907,1127m/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative flex items-center gap-2 px-6 py-3 text-primary group text-sm hidden sm:flex"
+                className="relative flex items-center gap-2 px-6 py-3 text-primary rounded-md  group text-sm hidden sm:flex"
               >
                 <span className="font-medium relative z-10">View on Map</span>
                 <FaMapMarkerAlt className="w-3.5 h-3.5 relative z-10" />
-                <div className="absolute inset-0 bg-primary/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-primary/5 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300" />
               </a>
             </div>
           </div>

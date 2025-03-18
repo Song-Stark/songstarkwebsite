@@ -25,7 +25,7 @@ export default function Portfolio({ items }: PortfolioProps) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <div className="bg-gray-50/50 py-24">
+    <div className="bg-gray-50/50 py-10 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -36,10 +36,9 @@ export default function Portfolio({ items }: PortfolioProps) {
           <span className="text-primary text-xs sm:text-sm font-semibold tracking-wider uppercase mb-4 block">
             Portfolio Showcase
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Some of Our Work
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Some of <span className="text-primary">Our Work</span>
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
         <div className="relative">

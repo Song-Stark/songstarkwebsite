@@ -25,7 +25,7 @@ const Footer: FC = () => {
       title: 'services',
       links: [
         { label: 'IT services', href: '/services/it-solutions' },
-        { label: 'Tours & Travel', href: '/services/tours-and-travel' },
+        { label: 'Tour Services', href: '/services/tours-and-travel' },
         { label: 'Korean Cosmetics shop', href: '/services/korean-cosmetics' },
         { label: 'Real Estate Agency', href: '/services/real-estate' },
         { label: 'Art Gallery', href: '/services/art-gallery' }
