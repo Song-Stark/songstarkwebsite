@@ -35,7 +35,7 @@ const HomeProjects: React.FC = () => {
   return (
     <section className="w-full mt-[-6rem] py-10">
       <div className="container mx-auto px-4">
-        <div className="relative flex flex-col md:flex-row items-start justify-center gap-0 mb-20">
+        <div className="relative flex flex-col md:flex-row items-start justify-center gap-0 mb-0 md:mb-20">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -90,7 +90,7 @@ const HomeProjects: React.FC = () => {
                   >
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm max-w-sm mx-12">
+                  <p className="text-gray-600 leading-relaxed text-sm max-w-sm mx-auto md:mx-12">
                     {project.description}
                   </p>
                 </div>
