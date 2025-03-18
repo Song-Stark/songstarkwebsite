@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaLaptopCode, FaPlane, FaBuilding, FaPaintBrush, FaShoppingBag, FaChevronRight } from 'react-icons/fa';
+import { FaLaptopCode, FaBuilding, FaPaintBrush, FaShoppingBag, FaChevronRight, FaCar } from 'react-icons/fa';
 
 interface ServiceItem {
   icon: React.ElementType;
@@ -24,7 +24,7 @@ const HomeServices: React.FC = () => {
       link: "/services/it-solutions"
     },
     {
-      icon: FaPlane,
+      icon: FaCar,
       title: "Tour Services",
       description: "Providing exceptional tours and travel services between Korea and Rwanda.",
       visual: "/images/services/ktour.jpg",
