@@ -35,7 +35,7 @@ export default function Hero({ title, heroTitle, description, visual, visuals, w
   console.log('Statistics:', statistics);
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid lg:grid-cols-2 gap-12 items-center pt-12  md:py-12 ">
+      <div className="grid lg:grid-cols-2 gap-12 items-center pt-6  md:py-12 ">
         <motion.div
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -46,7 +46,7 @@ export default function Hero({ title, heroTitle, description, visual, visuals, w
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium  ">
               {title}
             </span>
           </motion.div>

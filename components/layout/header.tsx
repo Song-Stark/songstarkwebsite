@@ -241,8 +241,8 @@ export default function Header(): React.ReactElement {
       <style jsx global>{globalStyles}</style>
       <header className={`fixed w-full z-[1000] transition-all duration-500 ease-out ${
         isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary shadow-xl'
-      } text-white  py-3`}>  
-        <div className="container mx-auto px-4">
+      } text-white py-3`}>  
+        <div className="max-w-[1440px] mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center"> 
@@ -253,8 +253,8 @@ export default function Header(): React.ReactElement {
                   width={140}
                   height={46}
                   className="w-[140px] md:w-[180px]"
-                priority
-              />
+                  priority
+                />
               </Link>
             </div>
 
@@ -276,31 +276,55 @@ export default function Header(): React.ReactElement {
               aria-label="Toggle navigation"
             >
               <FontAwesomeIcon 
-                icon={isOpen ? faXmark : faBars}
-                className="w-5 h-5 md:w-6 md:h-6"
+                icon={faBars}
+                className="w-5 h-5"
               />
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <div
-          className={`md:hidden absolute left-0 right-0 bg-primary transition-all duration-500 ease-out z-[1000] ${
-            isOpen ? 'opacity-100 visible top-full' : 'opacity-0 invisible -translate-y-4'
-          }`}
-        >
-          <nav className="container mx-auto px-4 py-8">
-            <div className="flex flex-col space-y-6">
-              {navItems.map((item) => (
-                <div key={item.href}>
-                  {renderNavItem(item)}
-                </div>
-              ))}
+        {/* Mobile Navigation - Drawer Style */}
+        {isMobile && (
+          <div
+            className={`fixed top-0 left-0 h-full w-[280px] bg-primary transition-all duration-300 ease-in-out transform ${
+              isOpen ? 'translate-x-0' : '-translate-x-full'
+            } z-[1001]`}
+          >
+            {/* Close button at top */}
+            <div className="flex justify-end p-4">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white"
+              >
+                <FontAwesomeIcon 
+                  icon={faXmark}
+                  className="w-5 h-5"
+                />
+              </button>
             </div>
-          </nav>
-        </div>
+
+            {/* Navigation items */}
+            <div className="px-4">
+              <nav className="flex flex-col space-y-6">
+                {navItems.map((item) => (
+                  <div key={item.href} className="w-full">
+                    {renderNavItem(item)}
+                  </div>
+                ))}
+              </nav>
+            </div>
+          </div>
+        )}
+
+        {/* Overlay when drawer is open */}
+        {isMobile && isOpen && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-[1000]"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
       </header>
-      {!isHomePage && <div className="h-16 md:h-24" />}
+      {!isHomePage && <div className="h-[64px]" />}
     </>
   );
 }

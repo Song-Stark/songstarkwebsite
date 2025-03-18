@@ -15,7 +15,7 @@ const HomeProjects: React.FC = () => {
     {
       title: 'Real Estate Agency',
       description: 'K-realty is a Real Estate company that provides a wide range of real estate services..',
-      image: '/images/krealty.png',
+      image: '/images/k-realty.png',
       link: 'https://www.k-realtyrwanda.com/'
     },
     {

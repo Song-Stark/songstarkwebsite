@@ -26,7 +26,7 @@ const TeamOverview: React.FC = () => {
     {
       name: " Hongju Joseph NA",
       position: "Senior Advisor",
-      image: "/images/team/senior-advisor.jpeg"
+      image: "/images/team/advisor.png"
     },  
     {
       name: "Leonard TUMUSHIME",
