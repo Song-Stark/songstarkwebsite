@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Poppins } from 'next/font/google'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
@@ -51,6 +53,15 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <a
+            href="https://wa.me/+250782892433"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-6 right-6 bg-green-500 rounded-full w-14 h-14 flex items-center justify-center shadow-xl hover:bg-green-600 transition-colors z-50"
+            aria-label="Chat on WhatsApp"
+          >
+            <FontAwesomeIcon icon={faWhatsapp} className="text-white text-2xl" />
+          </a>
         </div>
       </body>
     </html>
