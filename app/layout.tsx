@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     apple: '/images/siteicon.ico',
   },
   title: "Song & Stark cooperation Rwanda",
-  description: "Song&Stark Cooperation Rwanda is your partner operating in areas such as logistics, human resources, tourism, and real estate, with the goal of connecting Rwanda with the world.",
+  description: "Song&Stark Cooperation Rwanda is your partner operating in areas such as it solutions, tourism, korean cosmetics online shopping, art gallery and real estate, with the goal of connecting Rwanda with the world.",
 };
 
 export default function RootLayout({
