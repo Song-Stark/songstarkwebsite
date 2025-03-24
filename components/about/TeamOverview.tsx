@@ -13,7 +13,7 @@ const TeamOverview: React.FC = () => {
   const generalManager = {
     name: "Wan Song",
     position: "Co-Founder & CEO",
-    image: "/images/team/ceo.jpeg",
+    image: "/images/team/ceo.png",
     description: "With over 10 years of experience in international business development, Wan leads our organization with a vision to bridge Korean and Rwandan markets. His expertise in strategic planning and cross-cultural business practices has been instrumental in establishing Song & Stark as a trusted name in both countries."
   };
 

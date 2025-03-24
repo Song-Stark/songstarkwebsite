@@ -13,19 +13,19 @@ interface Project {
 const HomeProjects: React.FC = () => {
   const projects: Project[] = [
     {
-      title: 'Real Estate Agency',
+      title: 'K-Realty Rwanda',
       description: 'K-realty is a Real Estate company that provides a wide range of real estate services..',
       image: '/images/k-realty.png',
       link: 'https://www.k-realtyrwanda.com/'
     },
     {
-      title: 'Tour Services',
+      title: 'Song & Stark Tours',
       description: 'Song & Stark tours is a reputable Tour agency operating in Rwanda offering private and tailor-made tours to tourists. ',
       image: '/images/tours-site.png',
       link: 'https://songstarktours.com/'
     },
     {
-      title: 'Korean Cosmetic Shop',
+      title: 'K-Mart Rwanda',
       description: 'K-Mart is a platform that sells Korean products in Rwanda focusing on the cosmetics products.',
       image: '/images/kmart.png',
       link: 'https://k-martrwanda.com/'
