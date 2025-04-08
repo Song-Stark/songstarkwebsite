@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
     return (
-        <main className="container mx-auto px-4 py-8">
+        <main className="container mx-auto p-10">
             <ContactForm />
         </main>
     )
