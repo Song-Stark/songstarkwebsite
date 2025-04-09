@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
-import { FaUpload } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaUpload } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 interface FormData {
   fullName: string;
@@ -10,23 +11,26 @@ interface FormData {
   position: string;
   cvFile: File | null;
   coverLetter: string;
+  fileUrl: string | null;
 }
 
 const SubmitCV: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    email: '',
-    phone: '',
-    position: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    position: "",
     cvFile: null,
-    coverLetter: '',
+    coverLetter: "",
+    fileUrl: null,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
-  const [fileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -41,55 +45,83 @@ const SubmitCV: React.FC = () => {
         ...formData,
         cvFile: selectedFile,
       });
-      setFileName(selectedFile.name);
     }
   };
+  const uploadFile = async (file: File) => {
+    const data = new FormData();
+    data.append("file", file);
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      body: data,
+    });
+    const result = await res.json();
+    return result.fileUrl;
+  };
 
-  const handleSubmit = async (e: React.FormEvent) => {  
+  const submitForm = async (submissionData: any) => {
+    const response = await fetch("/api/sendresume", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(submissionData)
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+      toast.success("Application submitted successfully!");
+      // Clear form after successful submission
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        position: "",
+        cvFile: null,
+        coverLetter: "",
+        fileUrl: null,
+      });
+      setFileName("");
+    } else {
+      toast.error(`Failed to submit application: ${result.message}`);
+    }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    const data = new FormData();
-    data.append('fullName', formData.fullName);
-    data.append('email', formData.email);
-    data.append('phone', formData.phone);
-    data.append('position', formData.position);
-    data.append('coverLetter', formData.coverLetter);
-    
-    if (formData.cvFile) {
-      data.append('resume', formData.cvFile);
-    }
 
     try {
-      const response = await fetch('/api/carreers', {
-        method: 'POST',
-        body: data,
-      });
-      const result = await response.json();
-      if (response.ok) {
-        setSubmitMessage('Application submitted successfully');
-        setFormData({
-          fullName: '',
-          email: '',
-          phone: '',
-          position: '',
-          cvFile: null,
-          coverLetter: '',
-        });
-        setFileName('');
-      } else {
-        setSubmitMessage('Application submission failed');
+      // First upload the file and get the URL
+      let fileUrl = null;
+      if (formData.cvFile) {
+        fileUrl = await uploadFile(formData.cvFile);
       }
+
+      if (fileUrl) {
+        // Prepare the submission data
+        const submissionData = {
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          position: formData.position,
+          coverLetter: formData.coverLetter,
+          cvFile: fileUrl
+        };
+        submitForm(submissionData)
+      }
+
     } catch (error) {
-      setSubmitMessage('An error occurred while submitting the application');
+      toast.error("An error occurred while submitting the application");
+      console.error(error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="container mx-auto py-20 px-4 ">
+    <div className="container mx-auto py-20 px-4">
       <div className="mb-12 text-center">
-        <h2 className="text-2xl sm:text-4xl  font-bold mb-2">
+        <h2 className="text-2xl sm:text-4xl font-bold mb-2">
           <span className="text-primary">No role fits</span>
           <span className="text-secondary"> you?</span>
         </h2>
@@ -97,7 +129,7 @@ const SubmitCV: React.FC = () => {
           Just share your CV with us. We are always looking for talented people to join our team.
         </p>
       </div>
-      
+
       <div className="max-w-3xl mx-auto">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -156,7 +188,7 @@ const SubmitCV: React.FC = () => {
                 <FaUpload className="mx-auto h-10 w-10 text-primary" />
                 <div className="mt-2">
                   <label className="cursor-pointer text-primary hover:text-primary/90">
-                    <span>{fileName || 'Upload your CV'}</span>
+                    <span>{fileName || "Upload your CV"}</span>
                     <input
                       type="file"
                       name="cvFile"
@@ -190,13 +222,10 @@ const SubmitCV: React.FC = () => {
               className="w-32 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
-      </div>
-      <div className="text-center text-sm text-gray-500">
-        <p className='mt-4'>{submitMessage}</p>
       </div>
     </div>
   );

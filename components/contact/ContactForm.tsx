@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { FaClock, FaEnvelope, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaTwitter } from 'react-icons/fa';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -26,7 +28,7 @@ const ContactForm = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/sendcontact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,14 +38,14 @@ const ContactForm = () => {
   
       const result = await response.json();
       if (response.ok) {
-        alert("Email sent successfully!");
+        toast.success("Contact message sent successfully!");
         reset();
       } else {
-        alert(`Failed to send email: ${result.message}`);
+        toast.error(`Failed to send email: ${result.message}`);
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while sending the email.");
+      toast.error("An error occurred while sending the email.");
     }
   };
 
