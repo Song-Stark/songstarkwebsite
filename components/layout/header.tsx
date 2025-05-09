@@ -272,7 +272,7 @@ export default function Header(): React.ReactElement {
             {/* Mobile menu button */}
             <button
               type="button"
-              className="md:hidden p-1 text-white"
+              className={`md:hidden p-1 ${isHomePage && !hasScrolled ? 'text-white' : 'text-primary'}`}
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}
               aria-label="Toggle navigation"
@@ -288,7 +288,7 @@ export default function Header(): React.ReactElement {
         {/* Mobile Navigation - Drawer Style */}
         {isMobile && (
           <div
-            className={`fixed top-0 left-0 h-full w-[280px] bg-primary transition-all duration-300 ease-in-out transform ${
+            className={`fixed top-0 left-0 h-full w-[280px] bg-primary text-white transition-all duration-300 ease-in-out transform ${
               isOpen ? 'translate-x-0' : '-translate-x-full'
             } z-[1001]`}
           >
