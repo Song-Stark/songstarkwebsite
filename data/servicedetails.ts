@@ -4,7 +4,11 @@ export interface ServiceDetails {
     heroTitle?: string;
     description: string;
     longDescription: string[];
-    features: string[];
+    features: {
+        title: string;
+        icon: string;
+        bg?: string;
+    }[];
     visual: string;
     visuals?: string[];
     website?: string;
@@ -50,14 +54,45 @@ export interface ServiceDetails {
         "From startups to enterprises, we've helped numerous organizations streamline their operations, enhance customer experience, and achieve digital excellence."
       ],
       features: [
-        "Custom Software Development",
-        "Web Application Development",
-        "Mobile App Development (iOS & Android)",
-        "UI/UX Design & Consulting",
-        "Database Design & Management",
-        "24/7 Technical Support & Maintenance"
+        {
+          title: "UI/UX Design and Consulting",
+          icon: "MdDesignServices",
+          bg: "bg-blue-50"
+        },
+        {
+          title: "Web Application Development",
+          icon: "FaLaptopCode",
+          bg: "bg-green-50"
+        },
+        {
+          title: "Mobile App Development (iOS & Android)",
+          icon: "FaMobileAlt",
+          bg: "bg-purple-50"
+        },
+        {
+          title: "Consultation and Digital strategy",
+          icon: "MdOutlineBusinessCenter",
+          bg: "bg-yellow-50"
+        },
+        {
+          title: "Web Analytics and Reporting",
+          icon: "FaChartBar",
+          bg: "bg-red-50"
+        },
+        {
+          title: "24/7 Technical support and Maintenance",
+          icon: "BiSupport",
+          bg: "bg-indigo-50"
+        }
       ],
-      visual: "/images/services/it1.jpg",
+      visual: "/images/services/it1.jpg",   
+      visuals: [
+        "/images/services/it1.jpg",
+        "/images/services/it2.jpg",
+        "/images/services/it3.jpg",
+        "/images/services/it4.jpg",
+        "/images/services/it5.jpg",
+      ],
       whyChooseUs: [
         {
           icon: "expertise",
@@ -140,7 +175,6 @@ export interface ServiceDetails {
           image: "/images/portifloio/realty.png",
           link: "https://k-realtyrwanda.com/"
         },
-
         {
           title: "Korean cosmetics website",
           year: 2023,
@@ -174,8 +208,7 @@ export interface ServiceDetails {
           ],
           image: "/images/portifloio/imce.png",
           link: "https://imceltd.com/"
-        },
-
+        }
       ],
       statistics: [
         { label: "Projects", value: "50+" },
@@ -238,16 +271,39 @@ export interface ServiceDetails {
         "We create unforgettable journeys that bridge cultures and create lasting memories.",
       ],
       features: [
-        "Customized Tour Packages",
-        "Customized Tour Itineraries",
-        "Activities and Events",
-        "Local Guide Services",
-        "Accommodation Booking",
-        "Transportation Services"
+        {
+          title: "Customized Tour Packages",
+          icon: "FaSuitcase",
+          bg: "bg-blue-50"
+        },
+        {
+          title: "Customized Tour Itineraries",
+          icon: "FaRoute",
+          bg: "bg-green-50"
+        },
+        {
+          title: "Activities and Events",
+          icon: "FaCalendarAlt",
+          bg: "bg-purple-50"
+        },
+        {
+          title: "Local Guide Services",
+          icon: "FaUserTie",
+          bg: "bg-yellow-50"
+        },
+        {
+          title: "Accommodation Booking",
+          icon: "FaHotel",
+          bg: "bg-red-50"
+        },
+        {
+          title: "Transportation Services",
+          icon: "FaCar",
+          bg: "bg-indigo-50"
+        }
       ],
       visual: "/images/services/tour3.jpg",
       visuals: [
-   
         "/images/services/tour3.jpg",
         "/images/services/tour2.jpg",
         "/images/services/ktour.jpg",
@@ -270,12 +326,36 @@ export interface ServiceDetails {
         "We bridge the gap between Korean beauty innovations and Rwanda, bringing you authentic K-beauty products.",
       ],
       features: [
-        "Premium Korean Skincare",
-        "Authentic K-Beauty Products",
-        "Personalized Beauty Consultation",
-        "Direct Shipping from Korea",
-        "Product Education",
-        "Beauty Workshops"
+        {
+          title: "Premium Korean Skincare",
+          icon: "GiLotion",
+          bg: "bg-pink-50"
+        },
+        {
+          title: "Authentic K-Beauty Products",
+          icon: "BsBoxSeam",
+          bg: "bg-purple-50"
+        },
+        {
+          title: "Personalized Beauty Consultation",
+          icon: "FaRegComments",
+          bg: "bg-blue-50"
+        },
+        {
+          title: "Direct Shipping from Korea",
+          icon: "FaShippingFast",
+          bg: "bg-green-50"
+        },
+        {
+          title: "Product Education",
+          icon: "FaBook",
+          bg: "bg-yellow-50"
+        },
+        {
+          title: "Beauty Workshops",
+          icon: "GiMakeup",
+          bg: "bg-red-50"
+        }
       ],
       visual: "/images/services/cosmetics.jpg",
       website: "https://www.k-martrwanda.com/",
@@ -294,12 +374,36 @@ export interface ServiceDetails {
         "We connect buyers and sellers while providing professional property management services.",
       ],
       features: [
-        "Property Sales & Purchases",
-        "Property Management",
-        "Investment Consulting",
-        "Market Analysis",
-        "Property Valuation",
-        "Legal Support"
+        {
+          title: "Property Sales & Purchases",
+          icon: "FaHome",
+          bg: "bg-blue-50"
+        },
+        {
+          title: "Property Management",
+          icon: "FaBuilding",
+          bg: "bg-green-50"
+        },
+        {
+          title: "Investment Consulting",
+          icon: "FaChartLine",
+          bg: "bg-purple-50"
+        },
+        {
+          title: "Market Analysis",
+          icon: "FaSearchDollar",
+          bg: "bg-yellow-50"
+        },
+        {
+          title: "Property Valuation",
+          icon: "FaCalculator",
+          bg: "bg-red-50"
+        },
+        {
+          title: "Legal Support",
+          icon: "FaGavel",
+          bg: "bg-indigo-50"
+        }
       ],
       visual: "/images/services/real-estate.jpg",
       website: "https://www.k-realtyrwanda.com/",
@@ -318,12 +422,36 @@ export interface ServiceDetails {
         "We provide a platform for artists to reach art enthusiasts and collectors worldwide.",
       ],
       features: [
-        "Contemporary Art Collection",
-        "Artist Representation",
-        "Online Exhibitions",
-        "Art Consulting",
-        "Custom Framing",
-        "Worldwide Shipping"
+        {
+          title: "Contemporary Art Collection",
+          icon: "FaPaintBrush",
+          bg: "bg-blue-50"
+        },
+        {
+          title: "Artist Representation",
+          icon: "FaUserAlt",
+          bg: "bg-green-50"
+        },
+        {
+          title: "Online Exhibitions",
+          icon: "FaGlobe",
+          bg: "bg-purple-50"
+        },
+        {
+          title: "Art Consulting",
+          icon: "FaRegComments",
+          bg: "bg-yellow-50"
+        },
+        {
+          title: "Custom Framing",
+          icon: "FaImage",
+          bg: "bg-red-50"
+        },
+        {
+          title: "Worldwide Shipping",
+          icon: "FaShippingFast",
+          bg: "bg-indigo-50"
+        }
       ],
       visual: "/images/services/art3.jpg",
       visuals: [

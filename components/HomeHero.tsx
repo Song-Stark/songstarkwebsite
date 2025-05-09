@@ -10,7 +10,7 @@ interface HomeHeroProps {
 const HomeHero: FC<HomeHeroProps> = ({
   title = <>Connecting <span className="text-secondary">Rwanda</span> to the <span className="text-secondary">World</span>, Strengthening Global Ties for a <span className="text-secondary">Prosperous Future</span></>,
   description = "By building strong human and material exchange channels from Rwanda. We aim to contribute to the continued revitalization of solid mutual trust and broader and deeper economic exchanges.",
-  backgroundImage = "/images/hero-1.jpg"
+  backgroundImage = "/images/hero4.jpg"
 }) => {
   return (
     <div className="relative w-full h-screen">

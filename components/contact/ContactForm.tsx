@@ -50,7 +50,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container max-w-6xl mx-auto py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
           <h2 className="text-2xl sm:text-4xl font-bold mb-2">

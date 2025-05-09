@@ -178,7 +178,7 @@ export default function Header(): React.ReactElement {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`relative bg-secondary px-4 py-2 rounded-3xl hover:opacity-80`}
+            className={`relative bg-secondary px-4 py-2 rounded-3xl hover:opacity-80 text-white`}
           >
             {label}
           </a>
@@ -186,7 +186,9 @@ export default function Header(): React.ReactElement {
           <Link
             href={href}
             className={`relative ${
-              `after:content-[''] after:absolute after:h-[2px] after:bg-white after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 
+              `after:content-[''] after:absolute after:h-[2px] ${
+                isHomePage && !hasScrolled ? 'after:bg-white' : 'after:bg-primary'
+              } after:left-0 after:bottom-[-4px] after:transition-all after:duration-500 
                ${isActive ? 'after:w-[20px] ' : 'after:w-0 hover:after:w-[20px] '}` 
             }`}
           >
@@ -240,15 +242,15 @@ export default function Header(): React.ReactElement {
     <>
       <style jsx global>{globalStyles}</style>
       <header className={`fixed w-full z-[1000] transition-all duration-500 ease-out ${
-        isHomePage && !hasScrolled ? 'bg-transparent' : 'bg-primary shadow-xl'
-      } text-white py-3`}>  
+        isHomePage && !hasScrolled ? 'bg-transparent text-white' : 'bg-tertiary/90 text-primary shadow-xl shadow-tertiary/40'
+      } py-3`}>  
         <div className="max-w-[1440px] mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center"> 
               <Link href="/">
                 <Image
-                  src="/images/logo.png"
+                  src={isHomePage && !hasScrolled ? "/images/logo.png" : "/images/logodark.png"}
                   alt="Song&Stark"
                   width={140}
                   height={46}

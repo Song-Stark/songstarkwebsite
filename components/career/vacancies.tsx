@@ -2,12 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaClock, FaExternalLinkAlt } from 'react-icons/fa';
 import { VacancyType, vacancies } from '@/data/vacancies';
+import Link from 'next/link';
 
 type VacancyProps = VacancyType;
 
-const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, description, deadline }) => (
+const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, description, formLink, deadline }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -31,10 +32,15 @@ const VacancyCard: React.FC<VacancyProps> = ({ title, location, type, descriptio
         {type}
       </div>
     </div>
-    <p className="text-gray-600">{description}</p>
-    <button className="mt-4 bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors">
-      Apply Now
-    </button>
+    <p className="text-gray-600 whitespace-pre-line">{description}</p>
+    <Link 
+      href={formLink} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="inline-flex items-center mt-4 bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+    >
+      Apply Now <FaExternalLinkAlt className="ml-2 text-xs" />
+    </Link>
   </motion.div>
 );
 
