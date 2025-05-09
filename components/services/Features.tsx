@@ -8,7 +8,8 @@ import {
   FaCalculator, FaGavel, FaPaintBrush, FaUserAlt, FaGlobe, 
   FaRegComments, FaImage, FaShippingFast, FaBook,
   FaPumpSoap,
-  FaSmile
+  FaSmile,
+  FaMapMarkedAlt
 } from "react-icons/fa";
 import { MdDesignServices, MdOutlineBusinessCenter } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
@@ -28,6 +29,7 @@ const IconMap: Record<string, React.ElementType> = {
   FaUserTie,
   FaHotel,
   FaCar,
+  FaMapMarkedAlt,
   GiLotion: FaPumpSoap,
   BsBoxSeam,
   FaRegComments,
@@ -61,6 +63,7 @@ interface FeatureItem {
   title: string;
   icon: string;
   bg?: string;
+  description?: string;
 }
 
 interface FeaturesProps {
@@ -105,13 +108,20 @@ export default function Features({ features }: FeaturesProps) {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white shadow p-6 rounded-2xl hover:shadow-lg transition-all group flex items-center"
+                className="bg-white shadow p-6 rounded-2xl hover:shadow-lg transition-all group"
               >
-                <div className={`w-14 h-14 shrink-0 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all ${bgColor}`}>
-                  <Icon className="text-primary group-hover:text-white" size={22} />
+                <div className="flex items-center mb-3">
+                  <div className={`w-14 h-14 shrink-0 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all ${bgColor}`}>
+                    <Icon className="text-primary group-hover:text-white" size={22} />
+                  </div>
+                  <div className="h-12 mx-4 w-px bg-gray-200 group-hover:bg-primary/20 transition-colors"></div>
+                  <h3 className="text-lg font-semibold">{feature.title}</h3>
                 </div>
-                <div className="h-12 mx-4 w-px bg-gray-200 group-hover:bg-primary/20 transition-colors"></div>
-                <h3 className="text-lg font-semibold">{feature.title}</h3>
+                {feature.description && (
+                  <p className="text-gray-600 mt-2 pl-20">
+                    {feature.description}
+                  </p>
+                )}
               </motion.div>
             );
           })}
