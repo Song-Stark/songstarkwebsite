@@ -59,37 +59,37 @@ export interface ServiceDetails {
           title: "UI/UX Design and Consulting",
           icon: "MdDesignServices",
           bg: "bg-blue-50",
-          description: "Create intuitive, visually appealing interfaces that enhance user experience and drive engagement."
+          description: "Beautiful, intuitive interfaces that delight your users and keep them coming back."
         },
         {
           title: "Web Application Development",
           icon: "FaLaptopCode",
           bg: "bg-green-50",
-          description: "Build powerful, responsive web applications using modern frameworks and technologies."
+          description: "Custom web apps built with modern tech that scale with your business needs."
         },
         {
           title: "Mobile App Development (iOS & Android)",
           icon: "FaMobileAlt",
           bg: "bg-purple-50",
-          description: "Develop native and cross-platform mobile apps that deliver seamless user experiences across iOS and Android devices."
+          description: "Sleek, responsive apps that work seamlessly across all devices and platforms."
         },
         {
           title: "Consultation and Digital strategy",
           icon: "MdOutlineBusinessCenter",
           bg: "bg-yellow-50",
-          description: "Provide expert guidance on digital transformation strategies, market trends, and technology solutions."
+          description: "Strategic guidance to help your business navigate the digital landscape successfully."
         },
         {
           title: "Web Analytics and Reporting",
           icon: "FaChartBar",
           bg: "bg-red-50",
-          description: "Track and analyze website performance, user engagement, and business metrics to inform strategic decisions."
+          description: "Clear data insights that help you understand your users and make smarter business decisions."
         },
         {
           title: "24/7 Technical support and Maintenance",
           icon: "BiSupport",
           bg: "bg-indigo-50",
-          description: "Ensure your technology infrastructure runs smoothly and efficiently, with round-the-clock support and regular maintenance."
+          description: "Always-on technical help when you need it, keeping your systems running smoothly."
         }
       ],
       visual: "/images/services/it1.jpg",   
@@ -282,37 +282,37 @@ export interface ServiceDetails {
           title: "Customized Tour Packages",
           icon: "FaSuitcase",
           bg: "bg-blue-50",
-          description: "We offer customized tour packages to suit your interests and preferences in Rwanda, Uganda, Tanzania, and the rest of Africa."
+          description: "Tailor-made adventures across East Africa designed around your interests, budget, and schedule."
         },
         {
           title: "Customized Tour Itineraries",
           icon: "FaRoute",
           bg: "bg-green-50",
-          description: "Create personalized itineraries that align with your schedule and preferences."
+          description: "Flexible day-by-day plans built to match your dream African experience."
         },
         {
           title: "Activities and Events",
           icon: "FaCalendarAlt",
           bg: "bg-purple-50",
-          description: "We offer a wide range of activities and events to keep you entertained and engaged."
+          description: "From wildlife safaris to cultural immersion, we organize memorable experiences throughout your journey."
         },
         {
           title: "Destinations",
           icon: "FaMapMarkedAlt",
           bg: "bg-yellow-50",
-          description: "We offer a wide range of destinations to suit your needs and preferences."
+          description: "Explore iconic and hidden gems across Rwanda, Uganda, Tanzania and beyond."
         },
         {
           title: "Accommodation Booking",
           icon: "FaHotel",
           bg: "bg-red-50",
-          description: "We offer a wide range of accommodation options to suit your needs and preferences."
+          description: "Handpicked lodging options from luxury hotels to authentic homestays across East Africa."
         },
         {
           title: "Transportation Services",
           icon: "FaCar",
           bg: "bg-indigo-50",
-          description: "We offer a wide range of transportation services to suit your needs and preferences."
+          description: "Reliable vehicles and experienced drivers to ensure comfortable and safe travel throughout your journey."
         }
       ],
       visual: "/images/services/tour3.jpg",
@@ -333,7 +333,7 @@ export interface ServiceDetails {
       id: "korean-cosmetics",
       title: "Korean Cosmetics",
       heroTitle: "Shop the best of Korean Beauty with K-MART Rwanda",
-      description: "K-MART is an online  Korean cosmetics store that sells Korean cosmetics in Rwanda.",
+      description: "K-MART is an online Korean cosmetics store that sells Korean cosmetics in Rwanda.",
       longDescription: [
         "Discover the best of Korean beauty with our curated selection of premium cosmetics.",
         "We bridge the gap between Korean beauty innovations and Rwanda, bringing you authentic K-beauty products.",
@@ -343,37 +343,37 @@ export interface ServiceDetails {
           title: "Premium Korean Skincare",
           icon: "GiLotion",
           bg: "bg-pink-50",
-          description: "We offer a wide range of premium Korean skincare products to suit your needs and preferences."
+          description: "Genuine Korean skincare essentials that deliver visible results using innovative formulations."
         },
         {
           title: "Authentic K-Beauty Products",
           icon: "BsBoxSeam",
           bg: "bg-purple-50",
-          description: "We offer a wide range of authentic K-beauty products to suit your needs and preferences."
+          description: "Direct imports from Korea's top beauty brands, guaranteeing authenticity and quality."
         },
         {
           title: "Personalized Beauty Consultation",
           icon: "FaRegComments",
           bg: "bg-blue-50",
-          description: "We offer a wide range of personalized beauty consultation services to suit your needs and preferences."
+          description: "Expert advice on products tailored to your skin type, concerns, and beauty goals."
         },
         {
           title: "Direct Shipping from Korea",
           icon: "FaShippingFast",
           bg: "bg-green-50",
-          description: "We offer a wide range of direct shipping services from Korea to Rwanda."
+          description: "Fresh products delivered straight from South Korea to your doorstep in Rwanda."
         },
         {
           title: "Product Education",
           icon: "FaBook",
           bg: "bg-yellow-50",
-          description: "We offer a wide range of product education services to suit your needs and preferences."
+          description: "Learn how to use K-beauty products effectively through our guides and tutorials."
         },
         {
           title: "Beauty Workshops",
           icon: "GiMakeup",
           bg: "bg-red-50",
-          description: "We offer a wide range of beauty workshops to suit your needs and preferences."
+          description: "Hands-on sessions where you can master Korean skincare routines and makeup techniques."
         }
       ],
       visual: "/images/services/cosmetics.jpg",
@@ -398,37 +398,37 @@ export interface ServiceDetails {
           title: "Property Sales & Purchases",
           icon: "FaHome",
           bg: "bg-blue-50",
-          description: "Connect with qualified buyers and explore our curated selection of properties for sale. Our expert agents will guide you through every step of the transaction process."
+          description: "Find your dream property or sell your current one with expert guidance every step of the way."
         },
         {
           title: "Property Management",
           icon: "FaBuilding",
           bg: "bg-green-50",
-          description: "Our robust management solutions are designed to enhance property value, ensuring owners get the best returns on their investments with minimal hassle."
+          description: "Hassle-free management services that maximize your property's value and rental income."
         },
         {
           title: "Property Rentals",
           icon: "FaKey",
           bg: "bg-purple-50",
-          description: "Find your ideal rental property or let us manage your property rentals with professional tenant screening, maintenance coordination, and rent collection."
+          description: "Quality rental properties for tenants and comprehensive rental management for landlords."
         },
         {
           title: "Property Valuation",
           icon: "FaCalculator",
           bg: "bg-yellow-50",
-          description: "Get accurate property valuation services based on extensive market analysis, property condition assessment, and location factors to determine fair market value."
+          description: "Fair, data-driven property valuations based on market trends and property specifics."
         },
         {
           title: "Property Development",
           icon: "FaTools",
           bg: "bg-red-50",
-          description: "Transform your investment with our property development services, from conceptualization to completion, ensuring maximum value and appeal."
+          description: "Turn your vision into reality with our complete property development services."
         },
         {
           title: "Landlord Registration",
           icon: "FaUserTie",
           bg: "bg-indigo-50",
-          description: "Landlords with properties for rent or sale can register with us to connect with the K-Realty team and benefit from our comprehensive marketing and management services."
+          description: "Simple registration process for landlords looking to list and manage their properties with us."
         }
       ],
       visual: "/images/services/real-estate.jpg",
@@ -474,37 +474,37 @@ export interface ServiceDetails {
           title: "Exhibition of Asian Contemporary Art",
           icon: "FaPaintBrush",
           bg: "bg-blue-50",
-          description: "Discover exceptional artworks at Stark Gallery, the hub of Asian contemporary art with curated exhibitions showcasing established and emerging talent."
+          description: "Curated showcases of stunning works from established and emerging Asian artists."
         },
         {
           title: "Discovery of Emerging African Artists",
           icon: "FaUserAlt",
           bg: "bg-green-50",
-          description: "Find new investment opportunities at our specialized art marketplace for promising African artists, connecting collectors with unique artistic voices."
+          description: "A platform that connects art lovers with Africa's most promising artistic talents."
         },
         {
           title: "Art Investment Consulting",
           icon: "FaChartLine",
           bg: "bg-purple-50",
-          description: "Receive expert guidance on art investments with our specialized consulting services that help you build a valuable collection with confidence."
+          description: "Expert guidance to help you build a meaningful art collection that appreciates in value."
         },
         {
           title: "AI-Powered Art Information Platform",
           icon: "FaGlobe",
           bg: "bg-yellow-50",
-          description: "Access ArtOcean, our platform that provides real-time artwork and artist information, and analyzes art market trends with AI technology."
+          description: "Digital tools that provide market insights and artwork analysis to inform your collecting decisions."
         },
         {
           title: "Global Art Network & Partner Galleries",
           icon: "FaRegComments",
           bg: "bg-red-50",
-          description: "Benefit from our extensive network of partner galleries and art institutions across the globe, expanding your reach and opportunities."
+          description: "Connections with galleries and institutions worldwide for broader exposure and opportunities."
         },
         {
           title: "Worldwide Shipping & Art Handling",
           icon: "FaShippingFast",
           bg: "bg-indigo-50",
-          description: "Trust our professional art handling and international shipping services to deliver your precious artworks safely anywhere in the world."
+          description: "Careful packaging and secure global shipping to deliver artworks safely to your door."
         }
       ],
       visual: "/images/services/art3.jpg",

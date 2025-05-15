@@ -4,6 +4,7 @@ export interface VacancyType {
   type: string;
   description: string;
   formLink: string;
+  flyer: string;
   deadline: {
     from: string;
     to: string;
@@ -17,10 +18,12 @@ export const vacancies: VacancyType[] = [
     type: "Full-time",
     description: "📣Want to earn by recommending great IT services?🖥️\n\nJoin Song&Stark's referral program.\n Get paid for every successful referral. Refer a friend, and you could get up to 10% of the deal.\n\nApply now!💰",
     formLink: "https://docs.google.com/forms/d/e/1FAIpQLSe9vTZEckGib4DUGvicQCXCtMLTp-ymaJxYeL4gn_KbG3vgxg/viewform?usp=dialog",
+    flyer: "/images/it-referral.png",
     deadline: {
       from: "2025-05-01T00:00:00",  
       to: "2025-05-31T23:59:59"
     }
+
   },
 //   {
 //     title: "Graphic Designer",
