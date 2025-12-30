@@ -6,7 +6,8 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 
 # Install all dependencies (including devDependencies needed for build)
-RUN npm ci
+# npm install installs devDependencies by default (unless NODE_ENV=production)
+RUN npm install
 
 # Copy application code
 COPY . .
