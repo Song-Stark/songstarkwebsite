@@ -2,21 +2,19 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Force NODE_ENV to development for dependency installation (needed for devDependencies)
-# Coolify may set NODE_ENV=production which skips devDependencies
-ENV NODE_ENV=development
-
 # Copy package files
 COPY package.json package-lock.json* ./
 
 # Install all dependencies including devDependencies
-RUN npm ci
+# Use npm ci with --include=dev to ensure devDependencies are installed
+RUN npm ci --include=dev
 
 # Copy application code
 COPY . .
 
-# Set environment variable for build
+# Set environment variables for build
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
 
 # Build the application
 RUN npm run build
