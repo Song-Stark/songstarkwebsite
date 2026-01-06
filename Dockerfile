@@ -33,10 +33,15 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Copy necessary files from builder
-COPY --from=builder /app/public ./public
+# Copy public folder (if it exists)
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+# Copy standalone build output
+# The standalone output includes server.js and all necessary node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Set proper permissions
 USER nextjs
 
 EXPOSE 3000
@@ -44,4 +49,6 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
+# Start the Next.js server
+# The server.js file is in the standalone output root
 CMD ["node", "server.js"]
